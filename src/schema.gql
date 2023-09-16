@@ -1,0 +1,22 @@
+schema {
+  query: Query
+}
+
+type Query {
+  """
+  Returns information about a chrome extension based on it's ID and language (defaults to "en")
+  """
+  chromeExtension(id: String!): ChromeExtension
+}
+
+type ChromeExtension {
+  id: String!
+  name: String!
+  iconUrl: String!
+  storeUrl: String!
+  shortDescription: String!
+  longDescription: String!
+  weeklyActiveUsers: Int!
+  version: String!
+  lastUpdated: String!
+}
