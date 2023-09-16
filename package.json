@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "consola": "^3.2.3",
+    "dataloader": "^2.2.2",
     "graphql": "^16.8.0",
     "linkedom": "^0.15.3",
     "picocolors": "^1.0.0"

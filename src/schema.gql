@@ -7,6 +7,10 @@ type Query {
   Returns information about a chrome extension based on it's ID and language (defaults to "en")
   """
   chromeExtension(id: String!): ChromeExtension
+  """
+  Returns information about a list of chrome extension ids
+  """
+  chromeExtensions(ids: [String!]!): [ChromeExtension]!
 }
 
 type ChromeExtension {

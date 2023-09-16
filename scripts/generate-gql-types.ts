@@ -17,7 +17,7 @@ export async function generateGqlTypes(server: Server) {
   const { queryType, mutationType, subscriptionType, types, directives } =
     introspection.data.__schema;
 
-  let variableTypes: any[] = [];
+  let argTypes: any[] = [];
 
   const code = new CodeBlockWriter({
     indentNumberOfSpaces: 2,
@@ -40,7 +40,7 @@ export async function generateGqlTypes(server: Server) {
 
       switch (type.kind) {
         case "OBJECT":
-          return writeObjectType(code, variableTypes, type);
+          return writeObjectType(code, argTypes, type);
         case "SCALAR":
           return writeScalarType(code, type);
         default:
@@ -52,7 +52,7 @@ export async function generateGqlTypes(server: Server) {
     });
 
     // Query Variables
-    variableTypes.map((type) => writeObjectType(code, variableTypes, type));
+    argTypes.map((type) => writeObjectType(code, argTypes, type));
   });
   code.newLine();
 
@@ -68,6 +68,8 @@ function capitalizeFirstLetter(str: string): string {
 function getTsTypeString(gqlType: any): string {
   if (gqlType.kind === "NON_NULL")
     return `NonNullable<${getTsTypeString(gqlType.ofType)}>`;
+  if (gqlType.kind === "LIST")
+    return `Array<${getTsTypeString(gqlType.ofType)}> | undefined`;
   if (gqlType.kind === "SCALAR" || gqlType.kind === "OBJECT")
     return `${gqlType.name} | undefined`;
 
@@ -85,11 +87,7 @@ function writeCommentBlock(code: CodeBlockWriter, description: string | null) {
   code.writeLine(" */");
 }
 
-function writeObjectType(
-  code: CodeBlockWriter,
-  variableTypes: any[],
-  type: any
-) {
+function writeObjectType(code: CodeBlockWriter, argTypes: any[], type: any) {
   writeCommentBlock(code, type.description);
   code.write(`interface ${type.name}`).block(() => {
     type.fields.forEach((field: any) => {
@@ -98,13 +96,13 @@ function writeObjectType(
 
       let args = "";
       if (field.args?.length) {
-        const variablesType = {
+        const argsType = {
           kind: "OBJECT",
           name: `${type.name}${capitalizeFirstLetter(field.name)}Variables`,
           fields: field.args,
         };
-        args = `(variables: ${variablesType.name})`;
-        variableTypes.push(variablesType);
+        args = `(args: ${argsType.name}, ctx: WxtQueueCtx)`;
+        argTypes.push(argsType);
         returnTypeStr = `Promise<${returnTypeStr}> | ${returnTypeStr}`;
       }
       code.writeLine(`"${field.name}"${args}: ${returnTypeStr}`);

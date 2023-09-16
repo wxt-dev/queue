@@ -1,18 +1,18 @@
 import pc from "picocolors";
 import pkg from "../package.json";
-import { evaluateQuery } from "./graphql";
+import { createGraphql } from "./graphql";
 import playgroundHtml from "./public/playground.html";
 import consola from "consola";
+import { createChromeService } from "./services/chrome-service";
 
 export function createServer(config?: ServerConfig) {
   let port = config?.port;
   if (port == null) port = Number(process.env.PORT ?? "3000");
 
-  consola.info(
-    `${pc.cyan("store-api v" + pkg.version)} ${pc.dim("server started")}`
-  );
-  consola.log(`  ${pc.bold(pc.green("➜"))} http://localhost:${port}`);
-  console.log();
+  const chrome = createChromeService();
+  const graphql = createGraphql({
+    chrome,
+  });
 
   const httpServer = Bun.serve({
     port,
@@ -22,7 +22,7 @@ export function createServer(config?: ServerConfig) {
     async fetch(req) {
       // GraphQL
       if (req.url.endsWith("/api")) {
-        const res = await evaluateQuery(req);
+        const res = await graphql.evaluateQuery(req);
         return new Response(JSON.stringify(res), {
           headers: {
             "content-type": "application/json",
@@ -50,6 +50,12 @@ export function createServer(config?: ServerConfig) {
       });
     },
   });
+
+  consola.info(
+    `${pc.cyan("store-api v" + pkg.version)} ${pc.dim("server started")}`
+  );
+  consola.log(`  ${pc.bold(pc.green("➜"))} http://localhost:${port}`);
+  console.log();
 
   return {
     httpServer,
