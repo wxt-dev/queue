@@ -17,9 +17,10 @@ export async function crawlExtension(
   const storeUrl = metaContent(document, "itemprop=url");
   const iconUrl = metaContent(document, "itemprop=image");
   const weeklyActiveUsers = metaContent(document, "itemprop=interactionCount")
-    // "UserDownloads:XYZ"
+    // "UserDownloads:XYZ+"
     ?.replace("UserDownloads:", "")
-    .replace(",", "");
+    .replace(",", "")
+    .replace("+", "");
   const lastUpdated = nextSpanText(document, "Updated:");
   const version = metaContent(document, "itemprop=version");
   const shortDescription = metaContent(document, "property=og:description");
@@ -36,7 +37,7 @@ export async function crawlExtension(
   if (shortDescription == null) return;
   if (longDescription == null) return;
 
-  return {
+  const result: Gql.ChromeExtension = {
     id,
     name,
     iconUrl,
@@ -47,6 +48,8 @@ export async function crawlExtension(
     shortDescription,
     longDescription,
   };
+  consola.debug("Crawl results:", result);
+  return result;
 }
 
 function metaContent(document: any, attrSelector: string): string | undefined {
