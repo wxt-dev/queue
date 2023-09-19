@@ -4,7 +4,7 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --hot run src/index.ts",
+    "dev": "bun --hot run src/dev.ts",
     "docker:build": "docker build . -t aklinker1/store-api",
     "docker:build:amd": "bun docker:build --platform linux/amd64",
     "docker:push": "bun docker:build --platform linux/amd64 && docker push aklinker1/store-api"
