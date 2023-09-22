@@ -26,7 +26,7 @@ export function createServer(config?: ServerConfig) {
     },
     async fetch(req) {
       if (req.method === "OPTIONS") {
-        return createResponse();
+        return createResponse(undefined, { status: 204 });
       }
 
       // GraphQL
