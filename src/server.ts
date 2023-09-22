@@ -1,9 +1,14 @@
 import pc from "picocolors";
 import pkg from "../package.json";
 import { createGraphql } from "./graphql";
-import playgroundHtml from "./public/playground.html";
+import playgroundHtmlTemplate from "./public/playground.html";
 import consola from "consola";
 import { createChromeService } from "./services/chrome-service";
+
+const playgroundHtml = playgroundHtmlTemplate.replace(
+  "{{VERSION}}",
+  pkg.version
+);
 
 export function createServer(config?: ServerConfig) {
   let port = config?.port;
@@ -20,10 +25,15 @@ export function createServer(config?: ServerConfig) {
       consola.error(request);
     },
     async fetch(req) {
+      if (req.method === "OPTIONS") {
+        return createResponse();
+      }
+
       // GraphQL
       if (req.url.endsWith("/api")) {
-        const res = await graphql.evaluateQuery(req);
-        return new Response(JSON.stringify(res), {
+        const data = await graphql.evaluateQuery(req);
+
+        return createResponse(JSON.stringify(data), {
           headers: {
             "content-type": "application/json",
           },
@@ -32,17 +42,14 @@ export function createServer(config?: ServerConfig) {
 
       // GraphiQL
       if (req.url.endsWith("/playground"))
-        return new Response(
-          playgroundHtml.replace("{{VERSION}}", pkg.version),
-          {
-            headers: {
-              "content-type": "text/html",
-            },
-          }
-        );
+        return createResponse(playgroundHtml, {
+          headers: {
+            "content-type": "text/html",
+          },
+        });
 
       // Redirect to GraphiQL
-      return new Response(undefined, {
+      return createResponse(undefined, {
         status: 302,
         headers: {
           location: "/playground",
@@ -78,4 +85,21 @@ export type Server = ReturnType<typeof createServer>;
 
 export interface ServerConfig {
   port?: number;
+}
+
+function createResponse(
+  body?:
+    | ReadableStream
+    | BlobPart
+    | BlobPart[]
+    | FormData
+    | URLSearchParams
+    | null,
+  options?: ResponseInit
+) {
+  const res = new Response(body, options);
+  res.headers.set("Access-Control-Allow-Origin", "*");
+  res.headers.set("Access-Control-Allow-Headers", "*");
+  res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  return res;
 }
