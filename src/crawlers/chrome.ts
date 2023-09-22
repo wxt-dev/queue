@@ -15,7 +15,10 @@ export async function crawlExtension(
 
   const name = metaContent(document, "itemprop=name");
   const storeUrl = metaContent(document, "itemprop=url");
-  const iconUrl = metaContent(document, "itemprop=image");
+  const iconUrl = metaContent(document, "itemprop=image")?.replace(
+    /g=.+?$/,
+    "g=s256"
+  );
   const weeklyActiveUsers = metaContent(document, "itemprop=interactionCount")
     // "UserDownloads:XYZ+"
     ?.replace("UserDownloads:", "")
