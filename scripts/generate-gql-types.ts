@@ -8,6 +8,7 @@ const scalarNameToTs = {
   Boolean: "bool",
   String: "string",
   Int: "number",
+  Float: "number",
 };
 
 export async function generateGqlTypes(server: Server) {
