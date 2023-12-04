@@ -6,9 +6,7 @@ export async function crawlExtension(
   lang: string
 ): Promise<Gql.ChromeExtension | undefined> {
   consola.info("Crawling " + id);
-  const url = `https://chrome.google.com/webstore/detail/${id}?hl=${lang}`;
-  // TODO: Replace with new CWS URL when old store is deprecated - tested and everything works at this time
-  // const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
+  const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
   const res = await fetch(url);
   if (res.status !== 200) return;
 
