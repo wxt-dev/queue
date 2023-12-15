@@ -4,6 +4,7 @@ import { createGraphql } from "./graphql";
 import playgroundHtmlTemplate from "./public/playground.html";
 import consola from "consola";
 import { createChromeService } from "./services/chrome-service";
+import { createFirefoxService } from "./services/firefox-service";
 
 const playgroundHtml = playgroundHtmlTemplate.replace(
   "{{VERSION}}",
@@ -15,8 +16,10 @@ export function createServer(config?: ServerConfig) {
   if (port == null) port = Number(process.env.PORT ?? "3000");
 
   const chrome = createChromeService();
+  const firefox = createFirefoxService();
   const graphql = createGraphql({
     chrome,
+    firefox,
   });
 
   const httpServer = Bun.serve({

@@ -1,1 +1,1 @@
-export * as chrome from "./chrome";
+export * as chrome from "./chrome-crawler";

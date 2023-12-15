@@ -4,13 +4,21 @@ schema {
 
 type Query {
   """
-  Returns information about a chrome extension based on it's ID and language (defaults to "en")
+  Returns information about a Chrome extension based on it's ID and language (defaults to "en").
   """
   chromeExtension(id: String!): ChromeExtension
   """
-  Returns information about a list of chrome extension ids
+  Returns information about a list of Chrome extension ids.
   """
   chromeExtensions(ids: [String!]!): [ChromeExtension]!
+  """
+  Returns information about a Firefox addon based on it's ID/GUID/slug.
+  """
+  firefoxAddon(id: String!): FirefoxAddon
+  """
+  Returns information about a list of Firefox addon ID/GUID/slugs.
+  """
+  firefoxAddons(ids: [String!]!): [FirefoxAddon]!
 }
 
 type ChromeExtension {
@@ -21,6 +29,20 @@ type ChromeExtension {
   shortDescription: String!
   longDescription: String!
   weeklyActiveUsers: Int!
+  version: String!
+  lastUpdated: String!
+  rating: Float
+  reviewCount: Int
+}
+
+type FirefoxAddon {
+  id: String!
+  name: String!
+  iconUrl: String!
+  storeUrl: String!
+  shortDescription: String!
+  longDescription: String!
+  dailyActiveUsers: Int!
   version: String!
   lastUpdated: String!
   rating: Float
