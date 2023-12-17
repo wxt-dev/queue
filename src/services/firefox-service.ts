@@ -1,12 +1,14 @@
-import DataLoader from "dataloader";
 import { createFirefoxApiClient } from "../apis";
+import { DAY_MS } from "../utils/time";
+import { createCachedDataLoader } from "../utils/cache";
 
 export function createFirefoxService() {
   const firefox = createFirefoxApiClient();
 
-  const loader = new DataLoader<string | number, Gql.FirefoxAddon | undefined>(
-    (ids) => Promise.all(ids.map((id) => firefox.getAddon(id)))
-  );
+  const loader = createCachedDataLoader<
+    string | number,
+    Gql.FirefoxAddon | undefined
+  >(DAY_MS, (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))));
 
   return {
     getAddon: (id: string | number) => loader.load(id),

@@ -1,9 +1,13 @@
-import DataLoader from "dataloader";
 import { chrome } from "../crawlers";
+import { createCachedDataLoader, createInMemoryCache } from "../utils/cache";
+import { DAY_MS } from "../utils/time";
 
 export function createChromeService() {
-  const loader = new DataLoader<string, Gql.ChromeExtension | undefined>(
-    (ids) => Promise.all(ids.map((id) => chrome.crawlExtension(id, "en")))
+  const loader = createCachedDataLoader<
+    string,
+    Gql.ChromeExtension | undefined
+  >(DAY_MS, (ids) =>
+    Promise.all(ids.map((id) => chrome.crawlExtension(id, "en")))
   );
 
   return {

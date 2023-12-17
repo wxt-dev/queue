@@ -1,8 +1,11 @@
+import consola from "consola";
+
 export function createFirefoxApiClient() {
   return {
     getAddon: async (
       idOrSlugOrGuid: number | string
     ): Promise<Gql.FirefoxAddon> => {
+      consola.info("Fetching " + idOrSlugOrGuid);
       const url = new URL(
         `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`
       );
