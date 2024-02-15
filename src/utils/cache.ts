@@ -33,7 +33,7 @@ interface CacheEntry<T> {
 
 export function createCachedDataLoader<K, V>(
   ttl: number,
-  batchLoadFn: DataLoader.BatchLoadFn<K, V>
+  batchLoadFn: DataLoader.BatchLoadFn<K, V>,
 ) {
   return new DataLoader(batchLoadFn, {
     cacheMap: createInMemoryCache({ ttl }),

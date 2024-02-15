@@ -8,7 +8,7 @@ import { createFirefoxService } from "./services/firefox-service";
 
 const playgroundHtml = playgroundHtmlTemplate.replace(
   "{{VERSION}}",
-  pkg.version
+  pkg.version,
 );
 
 export function createServer(config?: ServerConfig) {
@@ -62,7 +62,7 @@ export function createServer(config?: ServerConfig) {
   });
 
   consola.info(
-    `${pc.cyan("store-api v" + pkg.version)} ${pc.dim("server started")}`
+    `${pc.cyan("store-api v" + pkg.version)} ${pc.dim("server started")}`,
   );
   consola.log(`  ${pc.bold(pc.green("➜"))} http://localhost:${port}`);
   console.log();
@@ -98,7 +98,7 @@ function createResponse(
     | FormData
     | URLSearchParams
     | null,
-  options?: ResponseInit
+  options?: ResponseInit,
 ) {
   const res = new Response(body, options);
   res.headers.set("Access-Control-Allow-Origin", "*");

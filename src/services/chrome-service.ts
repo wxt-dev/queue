@@ -7,7 +7,7 @@ export function createChromeService() {
     string,
     Gql.ChromeExtension | undefined
   >(DAY_MS, (ids) =>
-    Promise.all(ids.map((id) => chrome.crawlExtension(id, "en")))
+    Promise.all(ids.map((id) => chrome.crawlExtension(id, "en"))),
   );
 
   return {

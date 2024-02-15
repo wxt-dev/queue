@@ -3,7 +3,7 @@ import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
 
 export async function crawlExtension(
   id: string,
-  lang: string
+  lang: string,
 ): Promise<Gql.ChromeExtension | undefined> {
   consola.info("Crawling " + id);
   const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
@@ -28,13 +28,13 @@ export async function crawlExtension(
   const storeUrl = metaContent(document, "property=og:url");
   const iconUrl = metaContent(document, "property=og:image")?.replace(
     /=.+?$/,
-    "=s256"
+    "=s256",
   );
   const shortDescription = metaContent(document, "property=og:description");
 
   // Grab the main sections that contain content
   const sections = (document as HTMLElement).querySelectorAll(
-    "main > * > section"
+    "main > * > section",
   );
   const header: HTMLElement = sections[0];
   const description: HTMLElement = sections[2];
@@ -69,10 +69,10 @@ export async function crawlExtension(
   //   </span>
   // </span>
   const ratingRow = header.querySelector(
-    "div:first-child > div:nth-child(2) > span:last-child"
+    "div:first-child > div:nth-child(2) > span:last-child",
   );
   const rating = extractNumber(
-    ratingRow.querySelector("span:first-child > span:first-child").textContent
+    ratingRow.querySelector("span:first-child > span:first-child").textContent,
   );
   const reviewCount = extractNumber(ratingRow.querySelector("p").textContent);
 

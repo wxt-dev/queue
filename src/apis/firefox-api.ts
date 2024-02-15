@@ -3,16 +3,16 @@ import consola from "consola";
 export function createFirefoxApiClient() {
   return {
     getAddon: async (
-      idOrSlugOrGuid: number | string
+      idOrSlugOrGuid: number | string,
     ): Promise<Gql.FirefoxAddon> => {
       consola.info("Fetching " + idOrSlugOrGuid);
       const url = new URL(
-        `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`
+        `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`,
       );
       const res = await fetch(url);
       if (res.status !== 200)
         throw Error(
-          `${url.href} failed with status: ${res.status} ${res.statusText}`
+          `${url.href} failed with status: ${res.status} ${res.statusText}`,
         );
 
       const json = await res.json();
