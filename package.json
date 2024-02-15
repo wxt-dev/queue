@@ -8,14 +8,11 @@
     "docker:build": "docker build . -t aklinker1/store-api",
     "docker:run": "docker run -it aklinker1/store-api",
     "docker:build:amd": "bun docker:build --platform linux/amd64",
-    "docker:push": "bun docker:build --platform linux/amd64 && docker push aklinker1/store-api"
-  },
-  "devDependencies": {
-    "bun-types": "latest",
-    "code-block-writer": "^12.0.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "docker:push": "bun docker:build --platform linux/amd64 && docker push aklinker1/store-api",
+    "postinstall": "simple-git-hooks",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "compile": "tsc --noEmit"
   },
   "dependencies": {
     "consola": "^3.2.3",
@@ -23,5 +20,24 @@
     "graphql": "^16.8.0",
     "linkedom": "^0.15.3",
     "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "code-block-writer": "^12.0.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.3.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  },
+  "changelog": {
+    "excludeAuthors": [
+      "aaronklinker1@gmail.com"
+    ]
   }
 }

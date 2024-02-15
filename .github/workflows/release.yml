@@ -1,0 +1,62 @@
+name: Release
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    uses: "./.github/workflows/validate.yml"
+
+  publish:
+    runs-on: ubuntu-22.04
+    needs:
+      - validate
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+
+      - name: Bump and Tag
+        run: |
+          git config user.email "github-actions@users.noreply.github.com"
+          git config user.name "GitHub Actions"
+          pnpx changelogen@latest --release
+          git push
+          git push --tags
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: aklinker1/store-api
+          tags: |
+            type=semver,pattern={{version}},value=v${{ steps.bump.outputs.version }}
+            type=semver,pattern={{major}}.{{minor}},value=v${{ steps.bump.outputs.version }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Update Production Deployment
+        run: curl -X POST -i ${{ secrets.UPDATE_PROD_WEBHOOK }}
+
+      - name: GitHub Release
+        run: pnpx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
