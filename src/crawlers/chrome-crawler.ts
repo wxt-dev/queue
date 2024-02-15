@@ -1,5 +1,5 @@
 import consola from "consola";
-import { parseHTML } from "linkedom";
+import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
 
 export async function crawlExtension(
   id: string,
@@ -7,36 +7,94 @@ export async function crawlExtension(
 ): Promise<Gql.ChromeExtension | undefined> {
   consola.info("Crawling " + id);
   const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    headers: {
+      // Without a user agent, the request is stuck in a 302 redirect loop
+      "User-Agent":
+        // Firefox:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0",
+    },
+  });
   if (res.status !== 200) return;
 
   const html = await res.text();
   const { document } = parseHTML(html);
 
   // Uncomment to debug HTML
-  // consola.info(document.documentElement.outerHTML);
+  // Bun.write("chrome.html", document.documentElement.outerHTML);
 
-  const name = metaContent(document, "itemprop=name");
-  const storeUrl = metaContent(document, "itemprop=url");
-  const iconUrl = metaContent(document, "itemprop=image")?.replace(
+  // Basic metadata
+  const name = metaContent(document, "property=og:title");
+  const storeUrl = metaContent(document, "property=og:url");
+  const iconUrl = metaContent(document, "property=og:image")?.replace(
     /=.+?$/,
     "=s256"
   );
-  const weeklyActiveUsers = metaContent(document, "itemprop=interactionCount")
-    // "UserDownloads:XYZ+"
-    ?.replace("UserDownloads:", "")
-    .replace(",", "")
-    .replace("+", "");
-  const lastUpdated = nextSpanText(document, "Updated:");
-  const version = metaContent(document, "itemprop=version");
   const shortDescription = metaContent(document, "property=og:description");
-  const longDescription = document
-    .querySelector("div[itemprop=description]")
-    ?.nextElementSibling?.textContent?.trim();
 
-  const ratingDiv = document.querySelector(".rsw-stars");
-  const rating = extractNumber(ratingDiv.title); // "Average rating: 4.78 stars"
-  const reviewCount = extractNumber(ratingDiv.textContent); // "(1024)"
+  // Grab the main sections that contain content
+  const sections = (document as HTMLElement).querySelectorAll(
+    "main > * > section"
+  );
+  const header: HTMLElement = sections[0];
+  const description: HTMLElement = sections[2];
+  const details: HTMLElement = sections[3];
+
+  // Header
+
+  // userRowCount.outerHTHML:
+  // <div>
+  //   <a>...</a>
+  //   <a>...</a>
+  //   73 users
+  // </div>
+  // Remove the anchors and extract "73" from the text content
+  const userCountRow = header.querySelector("div:first-child > div:last-child");
+  userCountRow
+    .querySelectorAll("a")
+    .forEach((anchor: HTMLAnchorElement) => anchor.remove());
+  const weeklyActiveUsers = (userCountRow.textContent as string)
+    // "XYZ+ users"
+    .replace(" users", "")
+    .replace(",", "")
+    .replace("+", "")
+    .trim();
+
+  // ratingRow.outerHTML:
+  // <span>
+  //   <span>
+  //     <span>5.0</span>
+  //     <svg ><path /></svg>
+  //     <span>(<a><p>2 ratings</p></a>)</span>
+  //   </span>
+  // </span>
+  const ratingRow = header.querySelector(
+    "div:first-child > div:nth-child(2) > span:last-child"
+  );
+  const rating = extractNumber(
+    ratingRow.querySelector("span:first-child > span:first-child").textContent
+  );
+  const reviewCount = extractNumber(ratingRow.querySelector("p").textContent);
+
+  // Details
+
+  const detailItems = details.querySelectorAll("li > div:last-child");
+  const version = detailItems[0].textContent.trim();
+  const lastUpdated = detailItems[1].textContent.trim();
+
+  // Description
+
+  const longDescription = description
+    .querySelector("p:last-child")
+    .textContent.replaceAll("\n\n", "\n");
+
+  // const longDescription = document
+  //   .querySelector("div[itemprop=description]")
+  //   ?.nextElementSibling?.textContent?.trim();
+  //
+  // const ratingDiv = document.querySelector(".rsw-stars");
+  // const rating = extractNumber(ratingDiv.title); // "Average rating: 4.78 stars"
+  // const reviewCount = extractNumber(ratingDiv.textContent); // "(1024)"
 
   if (name == null) return;
   if (storeUrl == null) return;

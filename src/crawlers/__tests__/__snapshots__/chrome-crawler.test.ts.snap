@@ -1,0 +1,26 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chrome Web Store Crawler should load and crawl an extension ID correctly 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/GcffNyCJaxT2G9dsQCJHhUEMlu_E0vEzph5cLPrQj7UHKat7QyCzGu69Dmp_DDUL8rY-bPMFJceQarS1wcqdwTalTg=s256",
+  "id": "ocfdgncpifmegplaglcnglhioflaimkd",
+  "lastUpdated": "February 4, 2024",
+  "longDescription": 
+"Isn't it annoying when you open a small PR, but when you look at the diff, it's +2000 -16 because you installed a new library? Or what if you had to review that PR, don't line counts like that dissuade you from starting the review?
+In reality, lots of code is generated nowadays and GitHub's line counts are not representative of a PR's true size.
+This extension subtracts generated files from the total line counts, giving you a better idea of how big a PR really is. That's it. That's all it does.
+Generated files are detected from the branch's root .gitattributes file. See GitHub's docs to learn how to mark a file as generated: https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github
+For a simple example, checkout this extension's .gitattributes file! https://github.com/aklinker1/github-better-line-counts/blob/main/.gitattributes
+---
+The extension is open source. Feel free to contribute if you have any ideas or just star it 😀
+https://github.com/aklinker1/github-better-line-counts"
+,
+  "name": "GitHub: Better Line Counts",
+  "rating": 5,
+  "reviewCount": 2,
+  "shortDescription": "Remove generated files from GitHub line counts",
+  "storeUrl": "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd",
+  "version": "1.7.1",
+  "weeklyActiveUsers": 73,
+}
+`;

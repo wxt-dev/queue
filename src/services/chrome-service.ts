@@ -1,5 +1,5 @@
 import { chrome } from "../crawlers";
-import { createCachedDataLoader, createInMemoryCache } from "../utils/cache";
+import { createCachedDataLoader } from "../utils/cache";
 import { DAY_MS } from "../utils/time";
 
 export function createChromeService() {
