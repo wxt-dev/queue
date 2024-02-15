@@ -18,6 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - run: bun generate:types
       - run: bun compile
   tests:
     runs-on: ubuntu-22.04

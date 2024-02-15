@@ -6,6 +6,7 @@ logs
 node_modules
 dist
 src/@types/gql.d.ts
+tsconfig.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
