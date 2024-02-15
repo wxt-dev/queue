@@ -30,7 +30,7 @@
     "typescript": "^5.3.3"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "bun lint-staged"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"

@@ -4,5 +4,5 @@ runs:
   using: composite
   steps:
     - uses: oven-sh/setup-bun@v1
-    - run: pnpm install
+    - run: bun install
       shell: bash
