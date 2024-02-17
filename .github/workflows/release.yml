@@ -18,10 +18,13 @@ jobs:
       - uses: ./.github/actions/setup
 
       - name: Bump and Tag
+        id: bump
         run: |
           git config user.email "github-actions@users.noreply.github.com"
           git config user.name "GitHub Actions"
-          pnpx changelogen@latest --release
+          bunx changelogen@latest --release
+          VERSION=$(jq -r '.version' package.json)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           git push
           git push --tags
 
@@ -59,4 +62,4 @@ jobs:
         run: curl -X POST -i ${{ secrets.UPDATE_PROD_WEBHOOK }}
 
       - name: GitHub Release
-        run: pnpx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
+        run: bunx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
