@@ -11,9 +11,7 @@
     "docker:build:amd": "bun docker:build --platform linux/amd64",
     "docker:push": "bun docker:build --platform linux/amd64 && docker push aklinker1/store-api",
     "postinstall": "simple-git-hooks",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "compile": "tsc --noEmit"
+    "check": "check"
   },
   "dependencies": {
     "consola": "^3.2.3",
@@ -23,6 +21,7 @@
     "picocolors": "^1.0.0"
   },
   "devDependencies": {
+    "@aklinker1/check": "^1.2.0",
     "bun-types": "latest",
     "code-block-writer": "^12.0.0",
     "lint-staged": "^15.2.2",

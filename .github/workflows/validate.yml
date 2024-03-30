@@ -7,19 +7,13 @@ on:
       - main
 
 jobs:
-  formatting:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - run: bun format:check
-  type-check:
+  check:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: bun generate:types
-      - run: bun compile
+      - run: bun check
   tests:
     runs-on: ubuntu-22.04
     steps:
