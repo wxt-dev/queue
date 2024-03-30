@@ -21,7 +21,7 @@ export async function crawlExtension(
   const { document } = parseHTML(html);
 
   // Uncomment to debug HTML
-  // Bun.write("chrome.html", document.documentElement.outerHTML);
+  Bun.write("chrome.html", document.documentElement.outerHTML);
 
   // Basic metadata
   const name = metaContent(document, "property=og:title");
@@ -71,10 +71,17 @@ export async function crawlExtension(
   const ratingRow = header.querySelector(
     "div:first-child > div:nth-child(2) > span:last-child",
   );
-  const rating = extractNumber(
-    ratingRow.querySelector("span:first-child > span:first-child").textContent,
-  );
-  const reviewCount = extractNumber(ratingRow.querySelector("p").textContent);
+  const rating =
+    ratingRow != null
+      ? extractNumber(
+          ratingRow.querySelector("span:first-child > span:first-child")
+            .textContent,
+        )
+      : 0;
+  const reviewCount =
+    ratingRow != null
+      ? extractNumber(ratingRow.querySelector("p").textContent)
+      : 0;
 
   // Details
 
