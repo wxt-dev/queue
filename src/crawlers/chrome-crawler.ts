@@ -21,7 +21,7 @@ export async function crawlExtension(
   const { document } = parseHTML(html);
 
   // Uncomment to debug HTML
-  Bun.write("chrome.html", document.documentElement.outerHTML);
+  // Bun.write("chrome.html", document.documentElement.outerHTML);
 
   // Basic metadata
   const name = metaContent(document, "property=og:title");
