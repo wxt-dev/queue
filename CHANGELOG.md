@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.11
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.10...v0.3.11)
+
+### 🩹 Fixes
+
+- Reduce cache from 24 hours to 1 hour ([f564997](https://github.com/wxt-dev/queue/commit/f564997))
+
+### 🏡 Chore
+
+- Use @aklinker1/check to simplify checks ([90e10fe](https://github.com/wxt-dev/queue/commit/90e10fe))
+
 ## v0.3.10
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.9...v0.3.10)
