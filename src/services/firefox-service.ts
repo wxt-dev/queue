@@ -1,5 +1,5 @@
 import { createFirefoxApiClient } from "../apis";
-import { DAY_MS } from "../utils/time";
+import { HOUR_MS } from "../utils/time";
 import { createCachedDataLoader } from "../utils/cache";
 
 export function createFirefoxService() {
@@ -8,7 +8,7 @@ export function createFirefoxService() {
   const loader = createCachedDataLoader<
     string | number,
     Gql.FirefoxAddon | undefined
-  >(DAY_MS, (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))));
+  >(HOUR_MS, (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))));
 
   return {
     getAddon: (id: string | number) => loader.load(id),

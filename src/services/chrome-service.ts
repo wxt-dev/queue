@@ -1,12 +1,12 @@
 import { chrome } from "../crawlers";
 import { createCachedDataLoader } from "../utils/cache";
-import { DAY_MS } from "../utils/time";
+import { HOUR_MS } from "../utils/time";
 
 export function createChromeService() {
   const loader = createCachedDataLoader<
     string,
     Gql.ChromeExtension | undefined
-  >(DAY_MS, (ids) =>
+  >(HOUR_MS, (ids) =>
     Promise.all(ids.map((id) => chrome.crawlExtension(id, "en"))),
   );
 
