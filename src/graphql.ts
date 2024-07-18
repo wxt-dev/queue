@@ -20,7 +20,7 @@ export function createGraphql(ctx: WxtQueueCtx) {
 
     const start = performance.now();
     consola.debug(
-      `${pc.dim(`←-- [${id}]`)} ${pc.green(method)} ${pc.cyan(
+      `${pc.dim(`<-- [${id}]`)} ${pc.green(method)} ${pc.cyan(
         pc.bold(operationName),
       )}`,
     );
@@ -35,7 +35,7 @@ export function createGraphql(ctx: WxtQueueCtx) {
 
     const end = performance.now();
     consola.debug(
-      `${pc.dim(`--→ [${id}]`)} ${pc.green(method)} ${pc.cyan(
+      `${pc.dim(`--> [${id}]`)} ${pc.green(method)} ${pc.cyan(
         pc.bold(operationName),
       )} ${(end - start).toFixed(3)}ms`,
     );
