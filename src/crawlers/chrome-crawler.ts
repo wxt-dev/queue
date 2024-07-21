@@ -24,7 +24,10 @@ export async function crawlExtension(
   // Bun.write("chrome.html", document.documentElement.outerHTML);
 
   // Basic metadata
-  const name = metaContent(document, "property=og:title");
+  const name = metaContent(document, "property=og:title")?.replace(
+    / - Chrome Web Store$/,
+    "",
+  );
   const storeUrl = metaContent(document, "property=og:url");
   const iconUrl = metaContent(document, "property=og:image")?.replace(
     /=.+?$/,
