@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.12
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.11...v0.3.12)
+
+### 🩹 Fixes
+
+- Remove ' - Chrome Web Store' title suffix from extension names ([1ac0d9f](https://github.com/wxt-dev/queue/commit/1ac0d9f))
+
+### 🏡 Chore
+
+- Upgrade to bun V1.1.20 ([287dc2c](https://github.com/wxt-dev/queue/commit/287dc2c))
+
 ## v0.3.11
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.10...v0.3.11)
