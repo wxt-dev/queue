@@ -6,18 +6,22 @@ export function createChromeService() {
   const loader = createCachedDataLoader<
     string,
     Gql.ChromeExtension | undefined
-  >(HOUR_MS, (ids) =>
-    Promise.all(ids.map((id) => chrome.crawlExtension(id, "en"))),
-  );
+  >(HOUR_MS, async (ids) => {
+    const results = await Promise.allSettled(
+      ids.map((id) => chrome.crawlExtension(id, "en")),
+    );
+    return results.map((res) =>
+      res.status === "fulfilled" ? res.value : res.reason,
+    );
+  });
 
   return {
     getExtension: (id: string) => loader.load(id),
     getExtensions: async (ids: string[]) => {
       const result = await loader.loadMany(ids);
-      return result.map((item) => {
-        if (item == null) return undefined;
+      return result.map((item, index) => {
         if (item instanceof Error) {
-          console.warn("Error fetching multiple extensions:", item);
+          console.warn("Error loading extension:", ids[index], item);
           return undefined;
         }
         return item;
