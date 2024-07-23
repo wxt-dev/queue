@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.13
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.12...v0.3.13)
+
+### 🩹 Fixes
+
+- Only return null for crawl errors, not all extension in `chromeExtensions` ([f5c1c1b](https://github.com/wxt-dev/queue/commit/f5c1c1b))
+
 ## v0.3.12
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.11...v0.3.12)
