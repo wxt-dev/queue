@@ -19,7 +19,8 @@
     "dataloader": "^2.2.2",
     "graphql": "^16.8.0",
     "linkedom": "^0.15.3",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "radix3": "^1.1.2"
   },
   "devDependencies": {
     "@aklinker1/check": "^1.2.0",

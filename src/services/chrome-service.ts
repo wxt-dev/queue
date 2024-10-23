@@ -29,3 +29,5 @@ export function createChromeService() {
     },
   };
 }
+
+export type ChromeService = ReturnType<typeof createChromeService>;

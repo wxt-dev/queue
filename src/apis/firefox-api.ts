@@ -1,4 +1,5 @@
 import consola from "consola";
+import { buildScreenshotUrl } from "../utils/urls";
 
 export function createFirefoxApiClient() {
   return {
@@ -29,6 +30,13 @@ export function createFirefoxApiClient() {
         storeUrl: json.url,
         version: json.current_version.version,
         dailyActiveUsers: json.average_daily_users,
+        screenshots: (json.previews as any[]).map<Gql.Screenshot>(
+          (preview, i) => ({
+            index: i,
+            rawUrl: preview.image_url,
+            indexUrl: buildScreenshotUrl("firefox", json.id, i),
+          }),
+        ),
       };
     },
   };
