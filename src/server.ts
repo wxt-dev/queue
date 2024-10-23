@@ -46,7 +46,6 @@ export function createServer(config?: ServerConfig) {
       const url = new URL(req.url, SERVER_ORIGIN);
 
       // REST
-
       if (url.pathname.startsWith("/api/rest")) {
         return restRouter.fetch(url, req);
       }
