@@ -34,7 +34,7 @@ export function createFirefoxApiClient() {
           (preview, i) => ({
             index: i,
             rawUrl: preview.image_url,
-            indexUrl: buildScreenshotUrl("firefox", json.id, i),
+            indexUrl: buildScreenshotUrl("firefox-addons", json.id, i),
           }),
         ),
       };

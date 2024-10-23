@@ -22,6 +22,20 @@ describe("Chrome Web Store Crawler", () => {
         "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd",
       version: expect.any(String),
       weeklyActiveUsers: expect.any(Number),
+      screenshots: [
+        {
+          index: 0,
+          indexUrl:
+            "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
+          rawUrl: expect.any(String),
+        },
+        {
+          index: 1,
+          indexUrl:
+            "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
+          rawUrl: expect.any(String),
+        },
+      ],
     });
   });
 });

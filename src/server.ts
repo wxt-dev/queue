@@ -27,9 +27,12 @@ export function createServer(config?: ServerConfig) {
   });
 
   const restRouter = createRestRouter()
-    .get("/api/rest/chrome/:id/screenshots/:index", getChromeScreenshot(chrome))
     .get(
-      "/api/rest/firefox/:id/screenshots/:index",
+      "/api/rest/chrome-extensions/:id/screenshots/:index",
+      getChromeScreenshot(chrome),
+    )
+    .get(
+      "/api/rest/firefox-addons/:id/screenshots/:index",
       getFirefoxScreenshot(firefox),
     );
 

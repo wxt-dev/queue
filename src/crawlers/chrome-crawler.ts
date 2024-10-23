@@ -120,7 +120,7 @@ export async function crawlExtension(
       return {
         index,
         rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
-        indexUrl: buildScreenshotUrl("chrome", id, index),
+        indexUrl: buildScreenshotUrl("chrome-extensions", id, index),
       };
     });
 
