@@ -14,19 +14,19 @@ export interface Route {
 export function createRestRouter() {
   const r = radix3.createRouter<Route>();
   const router = {
-    get(path: string, handler: RouteHandler) {
+    get(path: string, handler: RouteHandler<any>) {
       r.insert(path, { method: "GET", handler });
       return router;
     },
-    post(path: string, handler: RouteHandler) {
+    post(path: string, handler: RouteHandler<any>) {
       r.insert(path, { method: "POST", handler });
       return router;
     },
-    any(path: string, handler: RouteHandler) {
+    any(path: string, handler: RouteHandler<any>) {
       r.insert(path, { method: "ANY", handler });
       return router;
     },
-    on(method: string, path: string, handler: RouteHandler) {
+    on(method: string, path: string, handler: RouteHandler<any>) {
       r.insert(path, { method, handler });
       return router;
     },
