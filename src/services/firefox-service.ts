@@ -11,8 +11,11 @@ export function createFirefoxService() {
   >(HOUR_MS, (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))));
 
   return {
-    getAddon: (id: string | number) => loader.load(id),
-    getAddons: async (ids: Array<string | number>) => {
+    getAddon: (id: string | number): Promise<Gql.FirefoxAddon | undefined> =>
+      loader.load(id),
+    getAddons: async (
+      ids: Array<string | number>,
+    ): Promise<Array<Gql.FirefoxAddon | undefined>> => {
       const result = await loader.loadMany(ids);
       return result.map((item) => {
         if (item == null) return undefined;
@@ -25,3 +28,5 @@ export function createFirefoxService() {
     },
   };
 }
+
+export type FirefoxService = ReturnType<typeof createFirefoxService>;

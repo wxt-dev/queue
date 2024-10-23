@@ -16,8 +16,11 @@ export function createChromeService() {
   });
 
   return {
-    getExtension: (id: string) => loader.load(id),
-    getExtensions: async (ids: string[]) => {
+    getExtension: (id: string): Promise<Gql.ChromeExtension | undefined> =>
+      loader.load(id),
+    getExtensions: async (
+      ids: string[],
+    ): Promise<Array<Gql.ChromeExtension | undefined>> => {
       const result = await loader.loadMany(ids);
       return result.map((item, index) => {
         if (item instanceof Error) {
@@ -29,3 +32,5 @@ export function createChromeService() {
     },
   };
 }
+
+export type ChromeService = ReturnType<typeof createChromeService>;

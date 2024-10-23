@@ -33,6 +33,7 @@ type ChromeExtension {
   lastUpdated: String!
   rating: Float
   reviewCount: Int
+  screenshots: [Screenshot!]!
 }
 
 type FirefoxAddon {
@@ -47,4 +48,20 @@ type FirefoxAddon {
   lastUpdated: String!
   rating: Float
   reviewCount: Int
+  screenshots: [Screenshot!]!
+}
+
+type Screenshot {
+  """
+  The screenshot's order.
+  """
+  index: Int!
+  """
+  The image's raw URL provided by the service. When screenshots are updated, this URL changes.
+  """
+  rawUrl: String!
+  """
+  URL to the image based on the index. If the raw URL changes, the `indexUrl` will remain constant, good for links in README.md files.
+  """
+  indexUrl: String!
 }

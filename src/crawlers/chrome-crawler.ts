@@ -1,5 +1,6 @@
 import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
+import { buildScreenshotUrl } from "../utils/urls";
 
 export async function crawlExtension(
   id: string,
@@ -21,7 +22,7 @@ export async function crawlExtension(
   const { document } = parseHTML(html);
 
   // Uncomment to debug HTML
-  // Bun.write("chrome.html", document.documentElement.outerHTML);
+  Bun.write("chrome.html", document.documentElement.outerHTML);
 
   // Basic metadata
   const name = metaContent(document, "property=og:title")?.replace(
@@ -106,6 +107,23 @@ export async function crawlExtension(
   // const rating = extractNumber(ratingDiv.title); // "Average rating: 4.78 stars"
   // const reviewCount = extractNumber(ratingDiv.textContent); // "(1024)"
 
+  // <div
+  //   aria-label="Item media 1 screenshot"
+  //   data-media-url="https://lh3.googleusercontent.com/GUgh0ThX2FDPNvbaumYl4DqsUhsbYiCe-Hut9FoVEnkmTrXyA-sHbMk5jmZTj_t-dDP8rAmy6X6a6GNTCn9F8zo4VYU"
+  //   data-is-video="false"
+  //   data-slide-index="0"
+  // >
+  const screenshots = [...document.querySelectorAll("div[data-media-url]")]
+    .filter((div) => div.getAttribute("data-is-video") === "false")
+    .map<Gql.Screenshot>((div) => {
+      const index = Number(div.getAttribute("data-slide-index") || -1);
+      return {
+        index,
+        rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
+        indexUrl: buildScreenshotUrl("chrome-extensions", id, index),
+      };
+    });
+
   if (name == null) return;
   if (storeUrl == null) return;
   if (iconUrl == null) return;
@@ -114,6 +132,12 @@ export async function crawlExtension(
   if (version == null) return;
   if (shortDescription == null) return;
   if (longDescription == null) return;
+  if (
+    screenshots.some(
+      (screenshot) => screenshot.index === -1 || !screenshot.rawUrl,
+    )
+  )
+    return;
 
   const result: Gql.ChromeExtension = {
     id,
@@ -127,6 +151,7 @@ export async function crawlExtension(
     longDescription,
     rating,
     reviewCount,
+    screenshots,
   };
   consola.debug("Crawl results:", result);
   return result;

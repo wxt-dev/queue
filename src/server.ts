@@ -5,6 +5,10 @@ import playgroundHtmlTemplate from "./public/playground.html";
 import consola from "consola";
 import { createChromeService } from "./services/chrome-service";
 import { createFirefoxService } from "./services/firefox-service";
+import { createRestRouter } from "./utils/rest-router";
+import { getChromeScreenshot } from "./rest/getChromeScreenshot";
+import { getFirefoxScreenshot } from "./rest/getFirefoxScreenshot";
+import { SERVER_ORIGIN } from "./utils/urls";
 
 const playgroundHtml = playgroundHtmlTemplate.replace(
   "{{VERSION}}",
@@ -22,6 +26,16 @@ export function createServer(config?: ServerConfig) {
     firefox,
   });
 
+  const restRouter = createRestRouter()
+    .get(
+      "/api/rest/chrome-extensions/:id/screenshots/:index",
+      getChromeScreenshot(chrome),
+    )
+    .get(
+      "/api/rest/firefox-addons/:id/screenshots/:index",
+      getFirefoxScreenshot(firefox),
+    );
+
   const httpServer = Bun.serve({
     port,
     error(request) {
@@ -32,8 +46,15 @@ export function createServer(config?: ServerConfig) {
         return createResponse(undefined, { status: 204 });
       }
 
+      const url = new URL(req.url, SERVER_ORIGIN);
+
+      // REST
+      if (url.pathname.startsWith("/api/rest")) {
+        return restRouter.fetch(url, req);
+      }
+
       // GraphQL
-      if (req.url.endsWith("/api")) {
+      if (url.pathname.startsWith("/api")) {
         const data = await graphql.evaluateQuery(req);
 
         return createResponse(JSON.stringify(data), {
