@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.14
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.13...v0.3.14)
+
+### 🚀 Enhancements
+
+- Extract screenshots from CWS and Firefox addons ([#3](https://github.com/wxt-dev/queue/pull/3))
+
+### 🏡 Chore
+
+- Bump bun version to 1.1.31 ([74249c1](https://github.com/wxt-dev/queue/commit/74249c1))
+
 ## v0.3.13
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.12...v0.3.13)
