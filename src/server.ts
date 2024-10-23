@@ -50,8 +50,8 @@ export function createServer(config?: ServerConfig) {
         return restRouter.fetch(url, req);
       }
 
+      // GraphQL
       if (url.pathname.startsWith("/api")) {
-        // GraphQL
         const data = await graphql.evaluateQuery(req);
 
         return createResponse(JSON.stringify(data), {
