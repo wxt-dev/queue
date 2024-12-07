@@ -57,12 +57,14 @@ export async function crawlExtension(
   userCountRow
     .querySelectorAll("a")
     .forEach((anchor: HTMLAnchorElement) => anchor.remove());
+  console.log(userCountRow.textContent);
   const weeklyActiveUsers = (userCountRow.textContent as string)
     // "XYZ+ users"
     .replace(" users", "")
-    .replace(",", "")
+    .replaceAll(",", "")
     .replace("+", "")
     .trim();
+  console.log(weeklyActiveUsers);
 
   // ratingRow.outerHTML:
   // <span>
