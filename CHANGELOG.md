@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.17
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.16...v0.3.17)
+
+### 🩹 Fixes
+
+- Remove logs ([762e25a](https://github.com/wxt-dev/queue/commit/762e25a))
+
 ## v0.3.16
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.15...v0.3.16)
