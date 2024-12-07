@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.16
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.15...v0.3.16)
+
+### 🩹 Fixes
+
+- Properly remove the second comma from user counts over 1,000,000 ([b43d9af](https://github.com/wxt-dev/queue/commit/b43d9af))
+
+### 🏡 Chore
+
+- Update lockfile ([f800177](https://github.com/wxt-dev/queue/commit/f800177))
+
 ## v0.3.15
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.14...v0.3.15)
