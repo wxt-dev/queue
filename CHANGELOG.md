@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.18
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.17...v0.3.18)
+
+### 🩹 Fixes
+
+- Fix broken chrome crawler after layout change ([f702361](https://github.com/wxt-dev/queue/commit/f702361))
+
+### 🏡 Chore
+
+- Update failing tests ([2ced470](https://github.com/wxt-dev/queue/commit/2ced470))
+
 ## v0.3.17
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.16...v0.3.17)
