@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.3.20
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.19...v0.3.20)
+
+### 🏡 Chore
+
+- Comment out debugging file write ([2c53851](https://github.com/wxt-dev/queue/commit/2c53851))
+- Add comment detailing adding test fixture for chrome crawler ([4ff5618](https://github.com/wxt-dev/queue/commit/4ff5618))
+
 ## v0.3.19
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.18...v0.3.19)
