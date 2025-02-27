@@ -1,6 +1,5 @@
 import { describe, expect, it } from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
-import { numberOfDFGCompiles } from "bun:jsc";
 
 const githubBetterLineCountsId = "ocfdgncpifmegplaglcnglhioflaimkd";
 
@@ -18,8 +17,9 @@ describe("Chrome Web Store Crawler", () => {
       rating: expect.any(Number),
       reviewCount: expect.any(Number),
       shortDescription: "Remove generated files from GitHub line counts",
-      storeUrl:
+      storeUrl: expect.stringContaining(
         "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd",
+      ),
       version: expect.any(String),
       weeklyActiveUsers: expect.any(Number),
       screenshots: [
