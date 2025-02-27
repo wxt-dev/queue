@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.19
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.18...v0.3.19)
+
+### 🩹 Fixes
+
+- Refactor CWS crawler to more safely extract extension details ([#5](https://github.com/wxt-dev/queue/pull/5))
+
 ## v0.3.18
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.17...v0.3.18)

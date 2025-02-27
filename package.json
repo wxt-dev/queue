@@ -1,6 +1,6 @@
 {
   "name": "wxt-queue",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "module": "src/index.ts",
   "type": "module",
   "packageManager": "bun@1.1.31",
