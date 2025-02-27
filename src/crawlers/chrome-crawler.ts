@@ -40,7 +40,10 @@ export async function crawlExtension(
   const sections = (document as HTMLElement).querySelectorAll(
     "main > * > section",
   );
-  const header: HTMLElement = sections[0];
+  const header: HTMLElement = sections[0].querySelector(
+    "section > section > div",
+  );
+
   const description: HTMLElement = sections[2];
   const details: HTMLElement = sections[3];
 
@@ -53,7 +56,7 @@ export async function crawlExtension(
   //   73 users
   // </div>
   // Remove the anchors and extract "73" from the text content
-  const userCountRow = header.querySelector("div:first-child > div:last-child");
+  const userCountRow = header.querySelector(":scope > div:last-child");
   userCountRow
     .querySelectorAll("a")
     .forEach((anchor: HTMLAnchorElement) => anchor.remove());
@@ -73,7 +76,7 @@ export async function crawlExtension(
   //   </span>
   // </span>
   const ratingRow = header.querySelector(
-    "div:first-child > div:nth-child(2) > span:last-child",
+    "div:first-child > div:nth-child(2) > span:nth-child(3)",
   );
   const rating =
     ratingRow != null
