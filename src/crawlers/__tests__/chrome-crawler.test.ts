@@ -1,3 +1,15 @@
+// To add a extension to this test:
+//
+// 1. Uncomment this code inside `src/crawlers/chrome-crawler.ts`:
+//    https://github.com/wxt-dev/queue/blob/2c538514080e2c787d47cae9f70e9e948fdcbd8b/src/crawlers/chrome-crawler.ts#L25-L30
+// 2. Run server in dev mode and use the `chromeExtension` query to get the
+//    extension's details
+// 3. After that query, regardless of if it succeeded or not, a new HTML file
+//    will be added to `src/crawlers/__tests__/fixtures/chrome-web-store/.new`
+// 4. Move the HTML file up one folder so it's next to the other test fixtures
+// 5. You're done! The test is added, run `bun test`.
+//
+
 import { beforeEach, describe, expect, it, mock } from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
 import { readdir } from "node:fs/promises";
