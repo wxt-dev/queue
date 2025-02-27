@@ -22,12 +22,12 @@ export async function crawlExtension(
   const html = await res.text();
   if (!canGenerateTestFixture) {
     // Uncomment to debug HTML or generate new test fixture
-    // const date = new Date();
-    // const dateString = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
-    // Bun.write(
-    //   `src/crawlers/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
-    //   html,
-    // );
+    const date = new Date();
+    const dateString = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
+    Bun.write(
+      `src/crawlers/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
+      html,
+    );
   }
 
   const parsed = parseHTML(html);
