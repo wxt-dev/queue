@@ -1,41 +1,34 @@
-import { describe, expect, it } from "bun:test";
+import { beforeEach, describe, expect, it, mock } from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
+import { readdir } from "node:fs/promises";
+import { join } from "node:path";
 
-const githubBetterLineCountsId = "ocfdgncpifmegplaglcnglhioflaimkd";
+const fetchMock = mock<typeof fetch>(() => {
+  throw Error("Not mocked");
+});
+globalThis.fetch = fetchMock;
 
-describe("Chrome Web Store Crawler", () => {
-  it("should load and crawl an extension ID correctly", async () => {
-    const res = await crawlExtension(githubBetterLineCountsId, "en");
+describe("Chrome Web Store Crawler", async () => {
+  const fixturesDir = join(import.meta.dir, "fixtures/chrome-web-store");
+  const testFiles = (await readdir(fixturesDir))
+    .filter((file) => !file.startsWith("."))
+    .toSorted();
+  const getExtensionIdFromFile = (file: string) =>
+    file.match(/.*-([a-z]+)\.html/)![1];
 
-    expect(res).toEqual({
-      iconUrl:
-        "https://lh3.googleusercontent.com/GcffNyCJaxT2G9dsQCJHhUEMlu_E0vEzph5cLPrQj7UHKat7QyCzGu69Dmp_DDUL8rY-bPMFJceQarS1wcqdwTalTg=s256",
-      id: githubBetterLineCountsId,
-      lastUpdated: expect.any(String),
-      longDescription: expect.stringContaining("Isn't it annoying when you"),
-      name: "GitHub: Better Line Counts",
-      rating: expect.any(Number),
-      reviewCount: expect.any(Number),
-      shortDescription: "Remove generated files from GitHub line counts",
-      storeUrl: expect.stringContaining(
-        "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd",
-      ),
-      version: expect.any(String),
-      weeklyActiveUsers: expect.any(Number),
-      screenshots: [
-        {
-          index: 0,
-          indexUrl:
-            "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
-          rawUrl: expect.any(String),
-        },
-        {
-          index: 1,
-          indexUrl:
-            "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
-          rawUrl: expect.any(String),
-        },
-      ],
-    });
+  beforeEach(() => {
+    fetchMock.mockReset();
   });
+
+  it.each(testFiles)(
+    "should extract extension details from %s",
+    async (file) => {
+      const id = getExtensionIdFromFile(file);
+      globalThis.fetch = mock(() =>
+        Promise.resolve(new Response(Bun.file(join(fixturesDir, file)))),
+      );
+      const res = await crawlExtension(id, "en", true);
+      expect(res).toMatchSnapshot();
+    },
+  );
 });
