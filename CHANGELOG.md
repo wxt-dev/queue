@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.4.1
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.0...v0.4.1)
+
+### 🩹 Fixes
+
+- Rename params ([4f5f246](https://github.com/wxt-dev/queue/commit/4f5f246))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.0
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.20...v0.4.0)
