@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.4.3
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.2...v0.4.3)
+
+### 📖 Documentation
+
+- Update OpenAPI docs, adding descriptions and examples to everything ([63f6cf2](https://github.com/wxt-dev/queue/commit/63f6cf2))
+
+### 🏡 Chore
+
+- Fix type error ([ca8bb8c](https://github.com/wxt-dev/queue/commit/ca8bb8c))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.2
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.1...v0.4.2)
