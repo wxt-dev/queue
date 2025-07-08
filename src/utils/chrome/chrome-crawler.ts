@@ -1,6 +1,6 @@
 import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
-import { buildScreenshotUrl } from "../utils/urls";
+import { buildScreenshotUrl } from "../urls";
 
 export async function crawlExtension(
   id: string,
@@ -164,14 +164,8 @@ function metaContent(document: any, attrSelector: string): string | undefined {
     .trim();
 }
 
-function nextSpanText(document: any, text: string): string | undefined {
-  const spans: any[] = Array.from(document.querySelectorAll("span"));
-  const span = spans.find((span: any) => span.textContent?.startsWith(text));
-  return span.nextElementSibling.textContent.trim();
-}
-
 function extractNumber(text: string): number | undefined {
-  const res = /([0-9\.,]+)/.exec(text)?.[1];
+  const res = /([0-9.,]+)/.exec(text)?.[1];
   if (res == null) return;
 
   const num = Number(res);

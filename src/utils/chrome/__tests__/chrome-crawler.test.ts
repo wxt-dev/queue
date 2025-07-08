@@ -1,6 +1,5 @@
 import { describe, expect, it } from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
-import { numberOfDFGCompiles } from "bun:jsc";
 
 const githubBetterLineCountsId = "ocfdgncpifmegplaglcnglhioflaimkd";
 
