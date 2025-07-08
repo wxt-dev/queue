@@ -9,16 +9,7 @@
 // 4. Move the HTML file up one folder so it's next to the other test fixtures
 // 5. You're done! The test is added, run `bun test`.
 //
-
-import {
-  afterAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  mock,
-  spyOn,
-} from "bun:test";
+import { afterAll, beforeEach, describe, expect, it, spyOn } from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
