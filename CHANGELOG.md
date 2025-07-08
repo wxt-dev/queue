@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.4.2
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.1...v0.4.2)
+
+### 🩹 Fixes
+
+- Accept CORS requests correctly ([c2b92d5](https://github.com/wxt-dev/queue/commit/c2b92d5))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.1
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.0...v0.4.1)
