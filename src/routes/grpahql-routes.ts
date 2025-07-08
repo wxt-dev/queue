@@ -41,7 +41,8 @@ export const graphqlRoutes = createApp()
         }),
       response: z
         .object({
-          data: z.any(),
+          data: z.any().optional(),
+          errors: z.any().array().optional(),
         })
         .meta({
           example: {
@@ -63,7 +64,7 @@ export const graphqlRoutes = createApp()
           },
         }),
     },
-    ({ request, body }) => graphql.evaluateQuery(request.method, body),
+    ({ request, body }) => graphql.evaluateQuery(request.method, body) as any,
   )
   .get(
     "/playground",
