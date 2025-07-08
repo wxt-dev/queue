@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.4.0
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.20...v0.4.0)
+
+### 🚀 Enhancements
+
+- ⚠️ Upgrade bun and refactor routing ([#6](https://github.com/wxt-dev/queue/pull/6))
+
+### 🏡 Chore
+
+- Update changelog generation config ([52f936b](https://github.com/wxt-dev/queue/commit/52f936b))
+- Add MIT License ([1ee6329](https://github.com/wxt-dev/queue/commit/1ee6329))
+
+### 🤖 CI
+
+- Fix dockerfile ([5ee13a5](https://github.com/wxt-dev/queue/commit/5ee13a5))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Upgrade bun and refactor routing ([#6](https://github.com/wxt-dev/queue/pull/6))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.3.20
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.19...v0.3.20)
