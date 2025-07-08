@@ -1,6 +1,6 @@
 # Overview
 
-As of right now, there the WXT Queue API is free to use with no authentication requirements.
+As of right now, the WXT Queue API is free to use with no authentication requirements.
 
 > [!IMPORTANT]
 > If you want to keep it this way, **be respectful of how you use it**. Do not spam or abuse it.
