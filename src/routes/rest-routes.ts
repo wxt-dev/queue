@@ -9,6 +9,10 @@ export const restRoutes = createApp()
   .get(
     "/api/rest/chrome-extensions/:id/screenshots/:index",
     {
+      summary: "Redirect to Screenshot",
+      tags: ["Chrome Extensions"],
+      description:
+        "Redirect to a screenshot's URL from the Chrome Web Store listing",
       params: z.object({
         id: z.string(),
         index: z.coerce.number().int().min(0),
@@ -29,6 +33,10 @@ export const restRoutes = createApp()
   .get(
     "/api/rest/firefox-addons/:addonId/screenshots/:index",
     {
+      summary: "Redirect to Screenshot",
+      tags: ["Firefox Addons"],
+      description:
+        "Redirect to a screenshot's URL from the Firefox Addons listing.",
       params: z.object({
         addonId: z.string(),
         index: z.coerce.number().int().min(0),
