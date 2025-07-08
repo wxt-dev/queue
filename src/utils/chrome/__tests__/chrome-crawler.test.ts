@@ -10,13 +10,20 @@
 // 5. You're done! The test is added, run `bun test`.
 //
 
-import { beforeEach, describe, expect, it, mock } from "bun:test";
+import {
+  afterAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  mock,
+  spyOn,
+} from "bun:test";
 import { crawlExtension } from "../chrome-crawler";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
-const fetchMock = mock<typeof fetch>();
-globalThis.fetch = fetchMock as any;
+const fetchSpy = spyOn(globalThis, "fetch");
 
 describe("Chrome Web Store Crawler", async () => {
   const fixturesDir = join(import.meta.dir, "fixtures/chrome-web-store");
@@ -27,14 +34,18 @@ describe("Chrome Web Store Crawler", async () => {
     file.match(/.*-([a-z]+)\.html/)![1]!;
 
   beforeEach(() => {
-    fetchMock.mockReset();
+    fetchSpy.mockReset();
+  });
+
+  afterAll(() => {
+    fetchSpy.mockRestore();
   });
 
   it.each(testFiles)(
     "should extract extension details from %s",
     async (file) => {
       const id = getExtensionIdFromFile(file);
-      fetchMock.mockResolvedValueOnce(
+      fetchSpy.mockResolvedValueOnce(
         new Response(Bun.file(join(fixturesDir, file))),
       );
       const res = await crawlExtension(id, "en", true);

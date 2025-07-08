@@ -13,7 +13,7 @@ describe("Chrome Web Store Crawler E2E", () => {
       id: githubBetterLineCountsId,
       lastUpdated: expect.any(String),
       longDescription: expect.stringContaining("Isn't it annoying when you"),
-      name: "GitHub: Better Line Counts",
+      name: "GitHub Better Line Counts",
       rating: expect.any(Number),
       reviewCount: expect.any(Number),
       shortDescription: "Remove generated files from GitHub line counts",
