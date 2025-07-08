@@ -7,17 +7,17 @@ import { Status } from "@aklinker1/zeta/status";
 export const restRoutes = createApp()
   .use(contextPlugin)
   .get(
-    "/api/rest/chrome-extensions/:extensionId/screenshots/:screenshotIndex",
+    "/api/rest/chrome-extensions/:id/screenshots/:index",
     {
       params: z.object({
-        extensionId: z.string(),
-        screenshotIndex: z.coerce.number().int().min(0),
+        id: z.string(),
+        index: z.coerce.number().int().min(0),
       }),
     },
     async ({ params, chrome, set }) => {
       const screenshotUrl = await chrome.getScreenshotUrl(
-        params.extensionId,
-        params.screenshotIndex,
+        params.id,
+        params.index,
       );
       if (!screenshotUrl)
         throw new NotFoundError("Extension or screenshot not found");
@@ -27,17 +27,17 @@ export const restRoutes = createApp()
     },
   )
   .get(
-    "/api/rest/firefox-addons/:addonId/screenshots/:screenshotIndex",
+    "/api/rest/firefox-addons/:addonId/screenshots/:index",
     {
       params: z.object({
         addonId: z.string(),
-        screenshotIndex: z.coerce.number().int().min(0),
+        index: z.coerce.number().int().min(0),
       }),
     },
     async ({ params, firefox, set }) => {
       const screenshotUrl = await firefox.getScreenshotUrl(
         params.addonId,
-        params.screenshotIndex,
+        params.index,
       );
       if (!screenshotUrl)
         throw new NotFoundError("Extension or screenshot not found");
