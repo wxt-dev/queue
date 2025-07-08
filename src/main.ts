@@ -1,6 +1,8 @@
 #!/usr/bin/env bun
 import consola from "consola";
-import { createServer } from "./server";
+import app from "./server";
+import pc from "picocolors";
+import { version } from "../package.json";
 
 if (process.env.LOG_LEVEL) {
   // silent: Number.NEGATIVE_INFINITY
@@ -20,4 +22,9 @@ if (process.env.LOG_LEVEL) {
   consola.level = Number(process.env.LOG_LEVEL);
 }
 
-createServer();
+const port = Number(process.env.PORT ?? "3000");
+app.listen(port, () => {
+  consola.info(
+    `${pc.cyan("@wxt-dev/queue v" + version)} ${pc.dim("server started")}`,
+  );
+});

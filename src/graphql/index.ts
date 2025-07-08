@@ -1,22 +1,18 @@
 import { buildSchema, graphql } from "graphql";
-import gqlSchema from "./schema.gql";
+import gqlSchema from "../assets/schema.gql";
 import { rootResolver } from "./resolvers";
 import { consola } from "consola";
 import pc from "picocolors";
+import { dependencies } from "../dependencies";
 
-export function createGraphql(ctx: WxtQueueCtx) {
+export function createGraphql() {
   const schema = buildSchema(gqlSchema);
 
   let increment = 0;
 
-  const evaluateQuery = async (req: Request) => {
-    const method = req.method.toUpperCase();
+  const evaluateQuery = async (method: string, body: GraphQLParams) => {
     const id = ++increment;
-    const {
-      operationName = "Unknown",
-      query,
-      variables,
-    } = await req.json<GraphQLParams>();
+    const { operationName = "Unknown", query, variables } = body;
 
     const start = performance.now();
     consola.debug(
@@ -28,7 +24,7 @@ export function createGraphql(ctx: WxtQueueCtx) {
     const response = await graphql({
       schema,
       source: query,
-      contextValue: ctx,
+      contextValue: dependencies.resolveAll(),
       variableValues: variables,
       rootValue: rootResolver,
     });

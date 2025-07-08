@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: bun generate:types
+      - run: bun gen:types
       - run: bun check
   tests:
     runs-on: ubuntu-22.04

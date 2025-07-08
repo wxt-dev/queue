@@ -1,6 +1,6 @@
 import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
-import { buildScreenshotUrl } from "../utils/urls";
+import { buildScreenshotUrl } from "../urls";
 
 export async function crawlExtension(
   id: string,

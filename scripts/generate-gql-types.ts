@@ -1,6 +1,7 @@
 import CodeBlockWriter from "code-block-writer";
-import type { Server } from "../src/server";
 import { consola } from "consola";
+import type { ServerSideFetch } from "@aklinker1/zeta/types";
+import app from "../src/server";
 
 const typesFile = Bun.file("src/@types/gql.d.ts");
 
@@ -11,12 +12,17 @@ const scalarNameToTs = {
   Float: "number",
 };
 
-export async function generateGqlTypes(server: Server) {
+export async function generateGqlTypes(fetch: ServerSideFetch = app.build()) {
   consola.info("Generating GraphQL types...");
-  const introspection = await server.introspect();
+  const introspection = await introspect(fetch);
 
-  const { queryType, mutationType, subscriptionType, types, directives } =
-    introspection.data.__schema;
+  const {
+    queryType,
+    mutationType,
+    subscriptionType,
+    types,
+    directives: _,
+  } = introspection.data.__schema;
 
   let argTypes: any[] = [];
 
@@ -63,7 +69,7 @@ export async function generateGqlTypes(server: Server) {
 
 function capitalizeFirstLetter(str: string): string {
   if (str.length === 0) return str;
-  return str[0].toUpperCase() + str.substring(1);
+  return str[0]!.toUpperCase() + str.substring(1);
 }
 
 function getTsTypeString(gqlType: any): string {
@@ -119,4 +125,22 @@ function writeScalarType(code: CodeBlockWriter, type: any) {
     consola.warn("Unknown scalar type:", type);
   }
   code.writeLine(`type ${type.name} = ${typeStr || "unknown"};`);
+}
+
+async function introspect(fetch: ServerSideFetch): Promise<any> {
+  const request = new Request("http://localhost/api", {
+    body: JSON.stringify({
+      operationName: "IntrospectionQuery",
+      query:
+        "query IntrospectionQuery { __schema { queryType { name } mutationType { name } subscriptionType { name } types { ...FullType } directives { name description locations args { ...InputValue } } } } fragment FullType on __Type { kind name description fields(includeDeprecated: true) { name description args { ...InputValue } type { ...TypeRef } isDeprecated deprecationReason } inputFields { ...InputValue } interfaces { ...TypeRef } enumValues(includeDeprecated: true) { name description isDeprecated deprecationReason } possibleTypes { ...TypeRef } } fragment InputValue on __InputValue { name description type { ...TypeRef } defaultValue } fragment TypeRef on __Type { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name ofType { kind name } } } } } } } } ",
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  });
+  const res = await fetch(request);
+  if (res.ok) return await res.json();
+
+  throw Error("Introspection request failed: " + (await res.text()));
 }

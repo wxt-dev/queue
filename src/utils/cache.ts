@@ -1,4 +1,4 @@
-import DataLoader, { CacheMap } from "dataloader";
+import DataLoader, { type CacheMap } from "dataloader";
 
 export function createInMemoryCache<K, V>(config: {
   ttl: number;
