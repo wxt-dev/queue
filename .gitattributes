@@ -5,3 +5,6 @@
 
 # Mark lock files as generated to avoid diffing
 bun.lock linguist-generated
+
+# Mark other generated files as generated
+src/crawlers/__tests__/fixtures/chrome-web-store/*.html linguist-generated=true

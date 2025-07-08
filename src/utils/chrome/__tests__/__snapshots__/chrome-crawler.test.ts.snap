@@ -1,0 +1,222 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chrome Web Store Crawler should extract extension details from 2025-02-26-kofbbilhmnkcmibjbioafflgmpkbnmme.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/5JM36LnZNUMFJCJlc7Qqk8QWFYIwfqRYmAdsUhG8inAnw5LNub7ukwq37-Tw3jiDIyBbz-CAKg_ZXgERZ_gJu-0GDg=s256",
+  "id": "kofbbilhmnkcmibjbioafflgmpkbnmme",
+  "lastUpdated": "January 10, 2025",
+  "longDescription": 
+"HTML to Markdown –   a straightforward Chrome extension designed to convert most web pages into markdown format effortlessly.
+As a developer, I often found myself needing to pull high-quality documentation from websites and reformat it for use with AI chat tools. That's why I created the "HTML to Markdown" Chrome extension. This free tool quickly converts web page content into clean Markdown, making it perfect for feeding into large language models or any other AI powered chats.
+Use Cases:
+Bloggers & Content Creators: Easily grab content from articles or research pages for your own posts.
+Developers: Copy code snippets and documentation into README files, project notes, or for use with large language models.
+Students & Researchers: Quickly extract information from online resources for papers and reports.
+Technical Writers: Convert website content to create guides and documentation.
+Note Taking: Convert articles or documentation into markdown notes.
+AI Integration: Extract and convert relevant website information into markdown for input into AI powered chat tools."
+,
+  "name": "HTML to Markdown",
+  "rating": 0,
+  "reviewCount": 0,
+  "screenshots": [
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/vDnkawI_rgAd5ou0gasjR5CQbm-HmbTj9SBTdlpxU_-ri1jeE9dz0qNnSOijaboiUd4tuwQBGg-ujIO-znDN4-InVZA=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/F9H2EBxfqxrriMb0zdjoFIiCufav1oV8QI-enLqT9AEuL0nPFJLaj0286R2UH_ekxLoVa-yO76f5sSDOAjEuORrRLg=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/kkK_WlsYeZNGK-sU-4nvH-sEXtx7xUMuqpsK-IHq29IUkmyC3C40n1DDsDdt0f6-LgbKGL_obH_Cse-zJWJPHk-OLQ=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/VJy9hYOMvlmwp2FhtrpIm8hNwwJVZWl-V4dZVl2cCl4aD8xNyuHaEgdm5bfjMBiZJXI0ysxul8P1GAyFaJrRvjDSuMY=s1280",
+    },
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/vDnkawI_rgAd5ou0gasjR5CQbm-HmbTj9SBTdlpxU_-ri1jeE9dz0qNnSOijaboiUd4tuwQBGg-ujIO-znDN4-InVZA=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/F9H2EBxfqxrriMb0zdjoFIiCufav1oV8QI-enLqT9AEuL0nPFJLaj0286R2UH_ekxLoVa-yO76f5sSDOAjEuORrRLg=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/kkK_WlsYeZNGK-sU-4nvH-sEXtx7xUMuqpsK-IHq29IUkmyC3C40n1DDsDdt0f6-LgbKGL_obH_Cse-zJWJPHk-OLQ=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/VJy9hYOMvlmwp2FhtrpIm8hNwwJVZWl-V4dZVl2cCl4aD8xNyuHaEgdm5bfjMBiZJXI0ysxul8P1GAyFaJrRvjDSuMY=s1280",
+    },
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
+    },
+  ],
+  "shortDescription": "Convert webpages to Markdown.  Easily convert headers, text, tables or code snippets to Markdown.",
+  "storeUrl": "https://chromewebstore.google.com/detail/html-to-markdown/kofbbilhmnkcmibjbioafflgmpkbnmme?hl=en",
+  "version": "0.0.13",
+  "weeklyActiveUsers": 77,
+}
+`;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2025-02-26-oadbjpccljkplmhnjekgjamejnbadlne.html 1`] = `undefined`;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2025-02-26-ocfdgncpifmegplaglcnglhioflaimkd.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/GcffNyCJaxT2G9dsQCJHhUEMlu_E0vEzph5cLPrQj7UHKat7QyCzGu69Dmp_DDUL8rY-bPMFJceQarS1wcqdwTalTg=s256",
+  "id": "ocfdgncpifmegplaglcnglhioflaimkd",
+  "lastUpdated": "October 20, 2024",
+  "longDescription": 
+"Isn't it annoying when you open a small PR, but when you look at the diff, it's +2000 -16 because you installed a new library? Or what if you had to review that PR, don't line counts like that dissuade you from starting the review?
+In reality, lots of code is generated nowadays and GitHub's line counts are not representative of a PR's true size.
+This extension subtracts generated files from the total line counts, giving you a better idea of how big a PR really is. That's it. That's all it does.
+Generated files are detected from the branch's root .gitattributes file. See GitHub's docs to learn how to mark a file as generated: https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github
+For a simple example, checkout this extension's .gitattributes file! https://github.com/aklinker1/github-better-line-counts/blob/main/.gitattributes
+---
+The extension is open source. Feel free to contribute if you have any ideas or just star it 😀
+https://github.com/aklinker1/github-better-line-counts"
+,
+  "name": "GitHub: Better Line Counts",
+  "rating": 5,
+  "reviewCount": 4,
+  "screenshots": [
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/GUgh0ThX2FDPNvbaumYl4DqsUhsbYiCe-Hut9FoVEnkmTrXyA-sHbMk5jmZTj_t-dDP8rAmy6X6a6GNTCn9F8zo4VYU=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/qRi-kO0il8W6CnWa_-7oFzCwWKwr73w607I-rpYF9MM27omsuoN0k4dkgBbBECD3vZszdTSkQnoW9sywsfvAQ_7M9Q=s1280",
+    },
+  ],
+  "shortDescription": "Remove generated files from GitHub line counts",
+  "storeUrl": "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd?hl=en",
+  "version": "1.7.1",
+  "weeklyActiveUsers": 251,
+}
+`;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2025-02-26-odffpjnpocjfcaclnenaaaddghkgijdb.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/Tr_1QA0fh5O5L5Bi3Moz6bPKxu1fC7aMrH_dCcKeLiBhjLCGmn46j59unBNxZdQ3fEymS_YXj2CHdsM-FE5vNzSEPg=s256",
+  "id": "odffpjnpocjfcaclnenaaaddghkgijdb",
+  "lastUpdated": "January 20, 2025",
+  "longDescription": 
+"Preview links in a popup without opening new tabs. Quickly search using text selection, select text using selection handler and search using keyboard shortcuts while staying on the same page.
+✨  Preview Links Instantly
+Hover over or click on links to preview content in a popup, without navigating away from your current tab. Save time and stay focused.
+🔍  Search Smarter
+Search the web directly from any page without opening a new tab. Use the selection popup or open a quick search bar using keyboard shortcut to search anything instantly.
+🤖  Turn Your AI Into an Assistant
+Use your favorite AI tools like ChatGPT or Gemini automated by Blync. Set action items with prompt, on any text selection the item shows in popup and clicking on it opens AI prompt in popup or sidebar.
+👉 Is it safe to use Blync?
+Absolutely! Blync is 100% secure.
+✅  It’s serverless and runs entirely within your browser.
+✅  We don’t track, store, or access your data.
+✅  Everything stays private and local.
+👉 Does Blync Link Preview work on all websites?
+✅  Yes! Blync works seamlessly on any website.
+👉 Do I need an AI account to use the AI Assistant?
+✅ Yes. Blync doesn’t provide AI services.
+✅ Blync automates the process, making it faster and easier for you to access AI features.
+👉 What AI agents does Blync support?
+✅ Currently, Blync supports: ChatGPT, Gemini and Claude
+💡 Why Choose Blync?
+✅ Stay Focused: No more tab overload or switching between windows.
+✅ Boost Productivity: Access essential tools and information faster.
+✅ Seamless Integration: Works effortlessly with the tools you already love.
+✅ Whether you're working, learning or just exploring the web Blync keeps everything within reach and helps you stay in the flow.
+➡️ Install Blync now and make every click count!"
+,
+  "name": "Blync: Preview Links, Selection Search and AI Sidebar & Popup",
+  "rating": 5,
+  "reviewCount": 2,
+  "screenshots": [
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/WVvtpr2Wzfr4zT34Z_Gy39ZL-I8UOZ5uReOAz-vmtC8lT4hebXlnur7y0bAWzXd6xihMbTP_PfZgQN_C4MfhixI2=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/e3JEIuiGu_dI70zGBPBXzL9YNZuHy8nItCoEKJSql56CcUVyIQC9Lor8HkeScWE2-qAFw5DLZQijXEfNxlInSoLl0DE=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/O9OuxL28A3GOp5-R8u2kyV9wkOchMTx0ZNWraAz93gqThZRwVpCbaEW0VL1bZ0dKaKr0ReN0qJYJfSFAPOkCuOGA=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/vfXSijB8FQ4hkARrKdJJfXe3b_ahd8yXsSuAbbKNwU9yondg0SIj1fenPJRosimBMo8bi1hj99lypD1CS1y1KhJE=s1280",
+    },
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/WVvtpr2Wzfr4zT34Z_Gy39ZL-I8UOZ5uReOAz-vmtC8lT4hebXlnur7y0bAWzXd6xihMbTP_PfZgQN_C4MfhixI2=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/e3JEIuiGu_dI70zGBPBXzL9YNZuHy8nItCoEKJSql56CcUVyIQC9Lor8HkeScWE2-qAFw5DLZQijXEfNxlInSoLl0DE=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/O9OuxL28A3GOp5-R8u2kyV9wkOchMTx0ZNWraAz93gqThZRwVpCbaEW0VL1bZ0dKaKr0ReN0qJYJfSFAPOkCuOGA=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/vfXSijB8FQ4hkARrKdJJfXe3b_ahd8yXsSuAbbKNwU9yondg0SIj1fenPJRosimBMo8bi1hj99lypD1CS1y1KhJE=s1280",
+    },
+    {
+      "index": 5,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
+    },
+  ],
+  "shortDescription": "Preview links, search the web without leaving your current tab and use AI (ChatGPT, Gemini) in popup and sidebar",
+  "storeUrl": "https://chromewebstore.google.com/detail/blync-preview-links-selec/odffpjnpocjfcaclnenaaaddghkgijdb?hl=en",
+  "version": "0.3.3",
+  "weeklyActiveUsers": 40,
+}
+`;

@@ -1,6 +1,6 @@
 {
   "name": "@wxt-dev/queue",
-  "version": "0.3.14",
+  "version": "0.3.20",
   "type": "module",
   "packageManager": "bun@1.2.18",
   "scripts": {

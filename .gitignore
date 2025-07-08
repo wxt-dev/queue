@@ -22,3 +22,7 @@ tsconfig.tsbuildinfo
 # .env files
 .env
 .env.*
+
+# Other Files
+src/crawlers/__tests__/fixtures/chrome-web-store/.new/*
+!src/crawlers/__tests__/fixtures/chrome-web-store/.new/.keep

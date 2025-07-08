@@ -1,5 +1,62 @@
 # Changelog
 
+## v0.3.20
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.19...v0.3.20)
+
+### 🏡 Chore
+
+- Comment out debugging file write ([2c53851](https://github.com/wxt-dev/queue/commit/2c53851))
+- Add comment detailing adding test fixture for chrome crawler ([4ff5618](https://github.com/wxt-dev/queue/commit/4ff5618))
+
+## v0.3.19
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.18...v0.3.19)
+
+### 🩹 Fixes
+
+- Refactor CWS crawler to more safely extract extension details ([#5](https://github.com/wxt-dev/queue/pull/5))
+
+## v0.3.18
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.17...v0.3.18)
+
+### 🩹 Fixes
+
+- Fix broken chrome crawler after layout change ([f702361](https://github.com/wxt-dev/queue/commit/f702361))
+
+### 🏡 Chore
+
+- Update failing tests ([2ced470](https://github.com/wxt-dev/queue/commit/2ced470))
+
+## v0.3.17
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.16...v0.3.17)
+
+### 🩹 Fixes
+
+- Remove logs ([762e25a](https://github.com/wxt-dev/queue/commit/762e25a))
+
+## v0.3.16
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.15...v0.3.16)
+
+### 🩹 Fixes
+
+- Properly remove the second comma from user counts over 1,000,000 ([b43d9af](https://github.com/wxt-dev/queue/commit/b43d9af))
+
+### 🏡 Chore
+
+- Update lockfile ([f800177](https://github.com/wxt-dev/queue/commit/f800177))
+
+## v0.3.15
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.3.14...v0.3.15)
+
+### 🩹 Fixes
+
+- Remove log ([e53264c](https://github.com/wxt-dev/queue/commit/e53264c))
+
 ## v0.3.14
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.3.13...v0.3.14)
