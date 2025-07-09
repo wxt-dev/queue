@@ -12,6 +12,6 @@ Start the server in dev mode:
 bun dev
 ```
 
-Open the link in the console to view the GraphiQL playground.
+Open the link in the console to view the Open API docs.
 
 > GraphQL types are generated based on the schema. This happens when running `bun dev`.
