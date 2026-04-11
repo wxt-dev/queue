@@ -3,4 +3,6 @@ export const rootResolver: Gql.RootResolver = {
   chromeExtensions: ({ ids }, ctx) => ctx.chrome.getExtensions(ids),
   firefoxAddon: ({ id }, ctx) => ctx.firefox.getAddon(id),
   firefoxAddons: ({ ids }, ctx) => ctx.firefox.getAddons(ids),
+  edgeAddon: ({ id }, ctx) => ctx.edge.getAddon(id),
+  edgeAddons: ({ ids }, ctx) => ctx.edge.getAddons(ids),
 };

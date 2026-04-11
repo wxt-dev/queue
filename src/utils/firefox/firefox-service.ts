@@ -18,10 +18,10 @@ export interface FirefoxService {
 export function createFirefoxService(): FirefoxService {
   const firefox = createFirefoxApiClient();
 
-  const loader = createCachedDataLoader<
-    string | number,
-    Gql.FirefoxAddon | undefined
-  >(HOUR_MS, (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))));
+  const loader = createCachedDataLoader<AddonId, Gql.FirefoxAddon | undefined>(
+    HOUR_MS,
+    (ids) => Promise.all(ids.map((id) => firefox.getAddon(id))),
+  );
 
   const getAddon: FirefoxService["getAddon"] = (addonId) =>
     loader.load(addonId);

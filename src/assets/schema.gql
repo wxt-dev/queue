@@ -11,6 +11,7 @@ type Query {
   Returns information about a list of Chrome extension ids.
   """
   chromeExtensions(ids: [String!]!): [ChromeExtension]!
+
   """
   Returns information about a Firefox addon based on it's ID/GUID/slug.
   """
@@ -19,6 +20,15 @@ type Query {
   Returns information about a list of Firefox addon ID/GUID/slugs.
   """
   firefoxAddons(ids: [String!]!): [FirefoxAddon]!
+
+  """
+  Returns information about an Edge addon based on it's CRX ID.
+  """
+  edgeAddon(id: String!): EdgeAddon
+  """
+  Returns information about a list of Edge addon IDs.
+  """
+  edgeAddons(ids: [String!]!): [EdgeAddon]!
 }
 
 interface Extension {
@@ -83,6 +93,29 @@ type FirefoxAddon implements Extension {
   # Additional fields
 
   dailyActiveUsers: Int!
+}
+
+type EdgeAddon implements Extension {
+  # Extension fields
+
+  id: String!
+  name: String!
+  iconUrl: String!
+  storeUrl: String!
+  shortDescription: String!
+  longDescription: String!
+  "Same as activeInstallCount"
+  users: Int!
+  version: String!
+  lastUpdated: String!
+  rating: Float
+  reviewCount: Int
+  screenshots: [Screenshot!]!
+
+  # Additional fields
+
+  "Number of users shown on `microsoftedge.microsoft.com`"
+  activeInstallCount: Int!
 }
 
 type Screenshot {
