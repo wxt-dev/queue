@@ -9,7 +9,7 @@ export const restRoutes = createApp()
   .get(
     "/api/rest/chrome-extensions/:id/screenshots/:index",
     {
-      summary: "Redirect to Screenshot",
+      operationId: "chromeScreenshotRedirect",
       tags: ["Chrome Extensions"],
       description:
         "Redirect to a screenshot's URL from the Chrome Web Store listing",
@@ -33,7 +33,7 @@ export const restRoutes = createApp()
   .get(
     "/api/rest/firefox-addons/:addonId/screenshots/:index",
     {
-      summary: "Redirect to Screenshot",
+      operationId: "firefoxScreenshotRedirect",
       tags: ["Firefox Addons"],
       description:
         "Redirect to a screenshot's URL from the Firefox Addons listing.",
@@ -44,6 +44,30 @@ export const restRoutes = createApp()
     },
     async ({ params, firefox, set }) => {
       const screenshotUrl = await firefox.getScreenshotUrl(
+        params.addonId,
+        params.index,
+      );
+      if (!screenshotUrl)
+        throw new NotFoundHttpError("Extension or screenshot not found");
+
+      set.status = HttpStatus.Found;
+      set.headers["Location"] = screenshotUrl;
+    },
+  )
+  .get(
+    "/api/rest/edge-addons/:addonId/screenshots/:index",
+    {
+      operationId: "edgeScreenshotRedirect",
+      tags: ["Firefox Addons"],
+      description:
+        "Redirect to a screenshot's URL from the Edge Addons listing.",
+      params: z.object({
+        addonId: z.string(),
+        index: z.coerce.number().int().min(0),
+      }),
+    },
+    async ({ params, edge, set }) => {
+      const screenshotUrl = await edge.getScreenshotUrl(
         params.addonId,
         params.index,
       );
