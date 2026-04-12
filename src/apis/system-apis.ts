@@ -2,12 +2,14 @@ import { createApp } from "@aklinker1/zeta";
 import z from "zod";
 import { version } from "../version";
 
-export const systemApis = createApp()
+export const systemApis = createApp({
+  tags: ["System"],
+})
   .get(
     "/",
     {
+      operationId: "apiDocsRedirect",
       summary: "API Docs Redirect",
-      tags: ["System"],
       description: "Redirect to the API reference when visiting the root URL.",
     },
     ({ set }) => {
@@ -18,8 +20,7 @@ export const systemApis = createApp()
   .get(
     "/api/health",
     {
-      summary: "Health Check",
-      tags: ["System"],
+      operationId: "healthCheck",
       description: "Used to make sure the API is up and running.",
       responses: z.object({
         status: z.literal("ok"),

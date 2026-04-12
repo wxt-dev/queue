@@ -3,15 +3,16 @@ import { z } from "zod";
 import { contextPlugin } from "../plugins/context-plugin";
 import { NotFoundHttpError } from "@aklinker1/zeta";
 import { HttpStatus } from "@aklinker1/zeta";
-import { ExtensionStoreName } from "../enums";
+import { ExtensionStoreName, OpenApiTag } from "../enums";
 
-export const extensionStoreApis = createApp()
+export const extensionStoreApis = createApp({
+  tags: [OpenApiTag.ExtensionStores],
+})
   .use(contextPlugin)
   .get(
     "/api/rest/:storeName/:id/screenshots/:index",
     {
       operationId: "redirectToScreenshot",
-      tags: ["Chrome Extensions"],
       description:
         "Redirect to a screenshot's URL from the Chrome Web Store listing",
       params: z.object({

@@ -7,6 +7,7 @@ import { zodSchemaAdapter } from "@aklinker1/zeta/adapters/zod-schema-adapter";
 import { version } from "./version";
 import dedent from "dedent";
 import { systemApis } from "./apis/system-apis";
+import { OpenApiTag } from "./enums";
 
 const app = createApp({
   schemaAdapter: zodSchemaAdapter,
@@ -35,15 +36,14 @@ const app = createApp({
     },
     tags: [
       {
-        name: "GraphQL",
+        name: OpenApiTag.Graphql,
         description: dedent`
           To play around with the GraphQL API, checkout the
           [GraphiQL Playground](/playground).
         `,
       },
-      { name: "Chrome Extensions" },
-      { name: "Firefox Addons" },
-      { name: "System" },
+      { name: OpenApiTag.ExtensionStores },
+      { name: OpenApiTag.System },
     ],
   },
 })

@@ -4,6 +4,7 @@ import { version } from "../../package.json";
 import { createGraphql } from "../graphql";
 import { z } from "zod";
 import dedent from "dedent";
+import { OpenApiTag } from "../enums";
 
 const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace(
   "{{VERSION}}",
@@ -12,12 +13,13 @@ const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace(
 
 const graphql = createGraphql();
 
-export const graphqlApis = createApp()
+export const graphqlApis = createApp({
+  tags: [OpenApiTag.Graphql],
+})
   .post(
     "/api",
     {
       summary: "Send Query",
-      tags: ["GraphQL"],
       description:
         "Send a query to the GraphQL API. You can play around with queries on the [GraphiQL playground](/playground).",
       body: z
@@ -73,7 +75,6 @@ export const graphqlApis = createApp()
     "/playground",
     {
       operationId: "playground",
-      tags: ["GraphQL"],
       description: dedent`
         Open the GraphiQL playground. This is where you can interact and test out
         the GraphQL API. It also contains the GraphQL documentation explorer.
