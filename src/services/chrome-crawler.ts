@@ -1,6 +1,7 @@
 import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
-import { buildScreenshotUrl } from "../urls";
+import { buildScreenshotUrl } from "../utils/urls";
+import { ExtensionStoreName } from "../enums";
 
 export async function crawlExtension(
   id: string,
@@ -140,7 +141,11 @@ export async function crawlExtension(
           return {
             index,
             rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
-            indexUrl: buildScreenshotUrl("chrome-extensions", id, index),
+            indexUrl: buildScreenshotUrl(
+              ExtensionStoreName.ChromeWebStore,
+              id,
+              index,
+            ),
           };
         }),
   ]);

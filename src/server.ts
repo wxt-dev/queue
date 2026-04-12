@@ -1,12 +1,12 @@
 import consola from "consola";
 import { createApp } from "@aklinker1/zeta";
 import { corsPlugin } from "./plugins/cors-plugin";
-import { graphqlRoutes } from "./routes/grpahql-routes";
-import { restRoutes } from "./routes/rest-routes";
+import { graphqlApis } from "./apis/graphql-apis";
+import { extensionStoreApis } from "./apis/extension-store-apis";
 import { zodSchemaAdapter } from "@aklinker1/zeta/adapters/zod-schema-adapter";
-import { version } from "../package.json";
-import { z } from "zod";
+import { version } from "./version";
 import dedent from "dedent";
+import { systemApis } from "./apis/system-apis";
 
 const app = createApp({
   schemaAdapter: zodSchemaAdapter,
@@ -49,33 +49,9 @@ const app = createApp({
 })
   .onGlobalError(({ error }) => void consola.error(error))
   .use(corsPlugin)
-  .use(restRoutes)
-  .use(graphqlRoutes)
-  .get(
-    "/",
-    {
-      summary: "API Docs Redirect",
-      tags: ["System"],
-      description: "Redirect to the API reference when visiting the root URL.",
-    },
-    ({ set }) => {
-      set.status = 302;
-      set.headers.Location = "/scalar";
-    },
-  )
-  .get(
-    "/api/health",
-    {
-      summary: "Health Check",
-      tags: ["System"],
-      description: "Used to make sure the API is up and running.",
-      responses: z.object({
-        status: z.literal("ok"),
-        version: z.string(),
-      }),
-    },
-    () => ({ status: "ok" as const, version }),
-  );
+  .use(systemApis)
+  .use(extensionStoreApis)
+  .use(graphqlApis);
 
 export default app;
 export type App = typeof app;

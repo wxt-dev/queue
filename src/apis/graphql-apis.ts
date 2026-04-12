@@ -12,7 +12,7 @@ const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace(
 
 const graphql = createGraphql();
 
-export const graphqlRoutes = createApp()
+export const graphqlApis = createApp()
   .post(
     "/api",
     {

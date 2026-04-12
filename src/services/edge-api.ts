@@ -1,4 +1,5 @@
-import { buildScreenshotUrl } from "../urls";
+import { ExtensionStoreName } from "../enums";
+import { buildScreenshotUrl } from "../utils/urls";
 
 export interface EdgeApi {
   getAddon(crxid: string): Promise<Gql.EdgeAddon>;
@@ -22,7 +23,11 @@ export function createEdgeApi(): EdgeApi {
     storeUrl: `https://microsoftedge.microsoft.com/addons/detail/${res.crxId}`,
     screenshots: res.screenshots.map((ss, i) => ({
       index: i,
-      indexUrl: buildScreenshotUrl("edge-addons", res.crxId, i),
+      indexUrl: buildScreenshotUrl(
+        ExtensionStoreName.EdgeAddonStore,
+        res.crxId,
+        i,
+      ),
       rawUrl: `https:${ss.uri}`, // URL without the schema (ex: "//store-images.s-microsoft.com/image/...")
     })),
   });
