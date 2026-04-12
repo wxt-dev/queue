@@ -13,11 +13,13 @@ export const dependencies = createIocContainer()
     "stores",
     (deps) =>
       ({
-        [ExtensionStoreName.ChromeExtensions]: deps.chromeWebStore,
         [ExtensionStoreName.ChromeWebStore]: deps.chromeWebStore,
-        [ExtensionStoreName.FirefoxExtensions]: deps.firefoxAddonStore,
         [ExtensionStoreName.FirefoxAddonStore]: deps.firefoxAddonStore,
-        [ExtensionStoreName.EdgeExtensions]: deps.edgeAddonStore,
         [ExtensionStoreName.EdgeAddonStore]: deps.edgeAddonStore,
+
+        // Deprecated, but staying around for a while.
+        [ExtensionStoreName.ChromeExtensions]: deps.chromeWebStore,
+        [ExtensionStoreName.FirefoxExtensions]: deps.firefoxAddonStore,
+        [ExtensionStoreName.EdgeExtensions]: deps.edgeAddonStore,
       }) satisfies ExtensionStores,
   );

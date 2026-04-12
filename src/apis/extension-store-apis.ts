@@ -3,7 +3,8 @@ import { z } from "zod";
 import { contextPlugin } from "../plugins/context-plugin";
 import { NotFoundHttpError } from "@aklinker1/zeta";
 import { HttpStatus } from "@aklinker1/zeta";
-import { ExtensionStoreName, OpenApiTag } from "../enums";
+import { OpenApiTag } from "../enums";
+import { ExtensionStoreNameSchema } from "../models";
 
 export const extensionStoreApis = createApp({
   tags: [OpenApiTag.ExtensionStores],
@@ -16,7 +17,7 @@ export const extensionStoreApis = createApp({
       description:
         "Redirect to a screenshot's URL from the Chrome Web Store listing",
       params: z.object({
-        storeName: z.enum(ExtensionStoreName),
+        storeName: ExtensionStoreNameSchema,
         id: z.string(),
         index: z.coerce.number().int().min(0),
       }),
