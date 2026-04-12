@@ -22,57 +22,57 @@ AI Integration: Extract and convert relevant website information into markdown f
   "screenshots": [
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
     },
     {
       "index": 1,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
       "rawUrl": "https://lh3.googleusercontent.com/vDnkawI_rgAd5ou0gasjR5CQbm-HmbTj9SBTdlpxU_-ri1jeE9dz0qNnSOijaboiUd4tuwQBGg-ujIO-znDN4-InVZA=s1280",
     },
     {
       "index": 2,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
       "rawUrl": "https://lh3.googleusercontent.com/F9H2EBxfqxrriMb0zdjoFIiCufav1oV8QI-enLqT9AEuL0nPFJLaj0286R2UH_ekxLoVa-yO76f5sSDOAjEuORrRLg=s1280",
     },
     {
       "index": 3,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
       "rawUrl": "https://lh3.googleusercontent.com/kkK_WlsYeZNGK-sU-4nvH-sEXtx7xUMuqpsK-IHq29IUkmyC3C40n1DDsDdt0f6-LgbKGL_obH_Cse-zJWJPHk-OLQ=s1280",
     },
     {
       "index": 4,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
       "rawUrl": "https://lh3.googleusercontent.com/VJy9hYOMvlmwp2FhtrpIm8hNwwJVZWl-V4dZVl2cCl4aD8xNyuHaEgdm5bfjMBiZJXI0ysxul8P1GAyFaJrRvjDSuMY=s1280",
     },
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
     },
     {
       "index": 1,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/1",
       "rawUrl": "https://lh3.googleusercontent.com/vDnkawI_rgAd5ou0gasjR5CQbm-HmbTj9SBTdlpxU_-ri1jeE9dz0qNnSOijaboiUd4tuwQBGg-ujIO-znDN4-InVZA=s1280",
     },
     {
       "index": 2,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/2",
       "rawUrl": "https://lh3.googleusercontent.com/F9H2EBxfqxrriMb0zdjoFIiCufav1oV8QI-enLqT9AEuL0nPFJLaj0286R2UH_ekxLoVa-yO76f5sSDOAjEuORrRLg=s1280",
     },
     {
       "index": 3,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/3",
       "rawUrl": "https://lh3.googleusercontent.com/kkK_WlsYeZNGK-sU-4nvH-sEXtx7xUMuqpsK-IHq29IUkmyC3C40n1DDsDdt0f6-LgbKGL_obH_Cse-zJWJPHk-OLQ=s1280",
     },
     {
       "index": 4,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/4",
       "rawUrl": "https://lh3.googleusercontent.com/VJy9hYOMvlmwp2FhtrpIm8hNwwJVZWl-V4dZVl2cCl4aD8xNyuHaEgdm5bfjMBiZJXI0ysxul8P1GAyFaJrRvjDSuMY=s1280",
     },
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/kofbbilhmnkcmibjbioafflgmpkbnmme/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/SwOe0XmN3ZkCkJQ4IF1a1i2qqCsw0b7I-Ez6VSQflAvafwiJhGbdRW6YAKNX8fAwdv159XogYSFc5Uykgt1fsYSv=s1280",
     },
   ],
@@ -107,12 +107,12 @@ https://github.com/aklinker1/github-better-line-counts"
   "screenshots": [
     {
       "index": 0,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
       "rawUrl": "https://lh3.googleusercontent.com/GUgh0ThX2FDPNvbaumYl4DqsUhsbYiCe-Hut9FoVEnkmTrXyA-sHbMk5jmZTj_t-dDP8rAmy6X6a6GNTCn9F8zo4VYU=s1280",
     },
     {
       "index": 1,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
       "rawUrl": "https://lh3.googleusercontent.com/qRi-kO0il8W6CnWa_-7oFzCwWKwr73w607I-rpYF9MM27omsuoN0k4dkgBbBECD3vZszdTSkQnoW9sywsfvAQ_7M9Q=s1280",
     },
   ],
@@ -162,57 +162,57 @@ Absolutely! Blync is 100% secure.
   "screenshots": [
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
     },
     {
       "index": 1,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
       "rawUrl": "https://lh3.googleusercontent.com/WVvtpr2Wzfr4zT34Z_Gy39ZL-I8UOZ5uReOAz-vmtC8lT4hebXlnur7y0bAWzXd6xihMbTP_PfZgQN_C4MfhixI2=s1280",
     },
     {
       "index": 2,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
       "rawUrl": "https://lh3.googleusercontent.com/e3JEIuiGu_dI70zGBPBXzL9YNZuHy8nItCoEKJSql56CcUVyIQC9Lor8HkeScWE2-qAFw5DLZQijXEfNxlInSoLl0DE=s1280",
     },
     {
       "index": 3,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
       "rawUrl": "https://lh3.googleusercontent.com/O9OuxL28A3GOp5-R8u2kyV9wkOchMTx0ZNWraAz93gqThZRwVpCbaEW0VL1bZ0dKaKr0ReN0qJYJfSFAPOkCuOGA=s1280",
     },
     {
       "index": 4,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
       "rawUrl": "https://lh3.googleusercontent.com/vfXSijB8FQ4hkARrKdJJfXe3b_ahd8yXsSuAbbKNwU9yondg0SIj1fenPJRosimBMo8bi1hj99lypD1CS1y1KhJE=s1280",
     },
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
     },
     {
       "index": 1,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/1",
       "rawUrl": "https://lh3.googleusercontent.com/WVvtpr2Wzfr4zT34Z_Gy39ZL-I8UOZ5uReOAz-vmtC8lT4hebXlnur7y0bAWzXd6xihMbTP_PfZgQN_C4MfhixI2=s1280",
     },
     {
       "index": 2,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/2",
       "rawUrl": "https://lh3.googleusercontent.com/e3JEIuiGu_dI70zGBPBXzL9YNZuHy8nItCoEKJSql56CcUVyIQC9Lor8HkeScWE2-qAFw5DLZQijXEfNxlInSoLl0DE=s1280",
     },
     {
       "index": 3,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/3",
       "rawUrl": "https://lh3.googleusercontent.com/O9OuxL28A3GOp5-R8u2kyV9wkOchMTx0ZNWraAz93gqThZRwVpCbaEW0VL1bZ0dKaKr0ReN0qJYJfSFAPOkCuOGA=s1280",
     },
     {
       "index": 4,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/4",
       "rawUrl": "https://lh3.googleusercontent.com/vfXSijB8FQ4hkARrKdJJfXe3b_ahd8yXsSuAbbKNwU9yondg0SIj1fenPJRosimBMo8bi1hj99lypD1CS1y1KhJE=s1280",
     },
     {
       "index": 5,
-      "indexUrl": "http://localhost:3000/api/rest/chrome-extensions/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/odffpjnpocjfcaclnenaaaddghkgijdb/screenshots/5",
       "rawUrl": "https://lh3.googleusercontent.com/MXf271aHeP9deq2VjO0-_QDU-VSKgu81hcc9iKNMbAg74sI1RnvOb7Esgy95P-NTrQ7vVJtW2fMOPnTYv8pnbnMEng=s1280",
     },
   ],
