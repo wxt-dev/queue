@@ -26,7 +26,7 @@ export async function crawlExtension(
     // const date = new Date();
     // const dateString = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
     // Bun.write(
-    //   `src/crawlers/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
+    //   `src/services/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
     //   html,
     // );
   }
@@ -60,21 +60,28 @@ export async function crawlExtension(
 
   // Header
 
-  const weeklyActiveUsersText = tryExtract("weeklyActiveUsers", validateInt, [
-    () => {
-      const userCountRow = document.querySelector(
-        "main > * > section:first-child > section > div > div:last-child",
-      ) as HTMLElement | null;
-      removeAnchorChildren(userCountRow);
-      return (
-        userCountRow?.textContent
-          // "W,XYZ+ users"
-          ?.replace(" users", "")
-          .replaceAll(",", "")
-          .replace("+", "")
-      );
-    },
-  ]);
+  const cleanupUserCount = (str: string | undefined) =>
+    str
+      // "W,XYZ+ users"
+      ?.replace(" users", "")
+      .replaceAll(",", "")
+      .replace("+", "");
+  const userCountSelectors = [
+    "main > * > section:first-child > section > div > div:nth-last-child(2)",
+    "main > * > section:first-child > section > div > div:last-child",
+  ];
+  const weeklyActiveUsersText = tryExtract(
+    "weeklyActiveUsers",
+    validateInt,
+    userCountSelectors.map((selector) => () => {
+      const row = document.querySelector(selector) as HTMLElement | null;
+      if (!row?.textContent?.includes("users"))
+        throw Error("Row did not include users");
+
+      removeAnchorChildren(row);
+      return cleanupUserCount(row?.textContent);
+    }),
+  );
   const weeklyActiveUsers = Number(weeklyActiveUsersText);
 
   const rating = tryExtract("rating", validateFloat, [

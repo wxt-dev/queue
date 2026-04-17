@@ -223,3 +223,116 @@ Absolutely! Blync is 100% secure.
   "weeklyActiveUsers": 40,
 }
 `;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2026-04-17-mgmdkjcljneegjfajchedjpdhbadklcf.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/lTplXRdnpEB-7DGRa_1nCKao_3aJ3C_e-GNVs9tQV9hDUXgupc1SsW6OrruxgrkSdFBSOqeia56YWgJI2IgpV1MK49s=s256",
+  "id": "mgmdkjcljneegjfajchedjpdhbadklcf",
+  "lastUpdated": "January 27, 2024",
+  "longDescription": 
+"Watch anime faster than ever! The Anime Skip Player lets you automatically skip intros, outros, or anything else that you don't want to watch.
+Anime Skip replaces the video player of streaming services with it's own, standardizing the viewing experience.
+
+✨ Features
+      • Customize what you want to watch and skip the rest
+      • Change the playback speed
+      • Customize your keyboard shortcuts
+      • Multiple color themes
+      • Screenshots
+      • Contribute timestamps and episode info for the community
+
+🌐 Streaming Services
+      • Crunchyroll
+      • Aniwave
+      • Aniwatch
+With more coming soon!
+
+☔ Safe
+The extension is open sourced!
+      https://github.com/anime-skip/web-extension
+
+💕 Enjoying Anime Skip?
+Leave a 5 star review! Reviews help build trust and attract new users, which means more timestamps!"
+,
+  "name": "Anime Skip Player",
+  "rating": 4.4,
+  "reviewCount": 42,
+  "screenshots": [
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/tIwJ7CWPxY411qKw2_TEkdGAorjCnP8OQJMtLZ1t_4Njx62uP4a58xE8BUzvKpghVoGn4ukFYrw4H5gB-I5WQiAx=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/d9aFrUwRB5QZTK8HNxJJgZ1Mb4FGIdLlTqbTeO7RfIl9YlZvO4_gRchpnjX5g9OTEocfkiS3ge1e257UBGt17iGKACI=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5PBHI8N5FXG2_kJY69KgVUotwRLdxvkzjUnkkXIyFMS8F3y1mtqfIWwkfRodqDH-wcCw9iEObpzXH6vfJ2tiqugsWA=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/OZ2XFtw0RIGPxeVrBubaZWrK9KJSKz51bwFI6z8m3ZLow9RPN_-zEmxuz48HUfTDG51J97LclUd2ydtFfyRbKm0xMA=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/lv8T04EmvcMaRAVJ6EiqG5yLa-EUE4l0sTtPzKWLXflkbkkV6dGd1OIhSCJUFj3DlRLc5SWFpuboCAw9LcY73sH7x1M=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/tIwJ7CWPxY411qKw2_TEkdGAorjCnP8OQJMtLZ1t_4Njx62uP4a58xE8BUzvKpghVoGn4ukFYrw4H5gB-I5WQiAx=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/d9aFrUwRB5QZTK8HNxJJgZ1Mb4FGIdLlTqbTeO7RfIl9YlZvO4_gRchpnjX5g9OTEocfkiS3ge1e257UBGt17iGKACI=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5PBHI8N5FXG2_kJY69KgVUotwRLdxvkzjUnkkXIyFMS8F3y1mtqfIWwkfRodqDH-wcCw9iEObpzXH6vfJ2tiqugsWA=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/OZ2XFtw0RIGPxeVrBubaZWrK9KJSKz51bwFI6z8m3ZLow9RPN_-zEmxuz48HUfTDG51J97LclUd2ydtFfyRbKm0xMA=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5PBHI8N5FXG2_kJY69KgVUotwRLdxvkzjUnkkXIyFMS8F3y1mtqfIWwkfRodqDH-wcCw9iEObpzXH6vfJ2tiqugsWA=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/OZ2XFtw0RIGPxeVrBubaZWrK9KJSKz51bwFI6z8m3ZLow9RPN_-zEmxuz48HUfTDG51J97LclUd2ydtFfyRbKm0xMA=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/lv8T04EmvcMaRAVJ6EiqG5yLa-EUE4l0sTtPzKWLXflkbkkV6dGd1OIhSCJUFj3DlRLc5SWFpuboCAw9LcY73sH7x1M=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/tIwJ7CWPxY411qKw2_TEkdGAorjCnP8OQJMtLZ1t_4Njx62uP4a58xE8BUzvKpghVoGn4ukFYrw4H5gB-I5WQiAx=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/mgmdkjcljneegjfajchedjpdhbadklcf/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/d9aFrUwRB5QZTK8HNxJJgZ1Mb4FGIdLlTqbTeO7RfIl9YlZvO4_gRchpnjX5g9OTEocfkiS3ge1e257UBGt17iGKACI=s1280",
+    },
+  ],
+  "shortDescription": "Custom video player for anime streaming websites. Skip intros, outros, and more.",
+  "storeUrl": "https://chromewebstore.google.com/detail/anime-skip-player/mgmdkjcljneegjfajchedjpdhbadklcf",
+  "users": 2000,
+  "version": "2.0.3",
+  "weeklyActiveUsers": 2000,
+}
+`;
