@@ -62,9 +62,17 @@ export async function crawlExtension(
 
   const weeklyActiveUsersText = tryExtract("weeklyActiveUsers", validateInt, [
     () => {
-      const userCountRow = document.querySelector(
-        "main > * > section:first-child > section > div > div:last-child",
-      ) as HTMLElement | null;
+      // Find the header div whose text contains " users" (resilient to DOM reordering)
+      const headerDivs = document.querySelectorAll(
+        "main > * > section:first-child > section > div > div",
+      );
+      let userCountRow: HTMLElement | null = null;
+      for (const div of headerDivs) {
+        if ((div as HTMLElement).textContent?.includes(" users")) {
+          userCountRow = div as HTMLElement;
+          break;
+        }
+      }
       removeAnchorChildren(userCountRow);
       return (
         userCountRow?.textContent

@@ -223,3 +223,109 @@ Absolutely! Blync is 100% secure.
   "weeklyActiveUsers": 40,
 }
 `;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2026-04-17-hmdcmlfkchdmnmnmheododdhjedfccka.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/JHgGb5sWzuZecolMRmsJluBhKZFQ1FrO9YXgcHkqRb9hy-73rOJh-smwk3oHVJDxCf0BdoYFJAPbGd_d-_i3cLugsw=s256",
+  "id": "hmdcmlfkchdmnmnmheododdhjedfccka",
+  "lastUpdated": "November 26, 2025",
+  "longDescription": 
+"Pick colors from any website and store them in your palettes.
+With just two clicks, Eye Dropper allows you to pick colors from any website without hassle. Whether you're a web developer, designer or creative professional, Eye Dropper is a great addition to your toolkit.
+⭐ Key Features:
+  👉 Web page Picker: Easily select any color from any web page with just two clicks. Eye Dropper provides a quick and intuitive way to identify and capture colors from your favorite websites.
+  👉 Color Palettes: Save and organize your favorite colors with a user-friendly interface. Create palettes, organize them and ensure consistency across your projects.
+  👉 Color Picker: Find that color you are looking for. Adjust hues, saturation, and brightness to find the perfect shade for your needs.
+  👉 Hex, RGB, and More: Eye Dropper supports various color formats, including HEX, RGB, HSL and HSV.
+  👉 User-friendly and Lightweight: Designed with a focus on simplicity and performance, Eye Dropper works effortlessly without slowing down your browsing experience.
+⭐ Why Choose Eye Dropper?
+  👉 Free software made with ❤️ by single developer.
+  
+  👉 Eye Dropper is here to stay: In active development since 2010, also first color picking extension for Chrome.
+  
+  👉 Trusted by more than million users in Chrome Store, with 2,000 positive reviews.
+  
+  👉 Safe: Doesn't collect your data. Doesn't track you."
+,
+  "name": "Eye Dropper",
+  "rating": 4.3,
+  "reviewCount": 3,
+  "screenshots": [
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/0YMjrWbn7_iSWpjvF45C2xdswzPDZZ8Qf2cPeM2-VrQF8PNX9F0sWWjr-CBbCOH0kogD0CEW2uewbx5TyvLAf1Ia=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/YaXuIdUkKlr7g5tq2mpY8uWvckzknb6xyv9TD6iam0-6ri-7_a1jjntmTv3dz0x0kz38lEUEHW-r9q6zp0eMwPov=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/cLm5vTn9bPNn6QvxuJdcqgP3JF47XB4hKm9rP3XibkyT2arxWo_HwCa6c8RwcIV4Et0c1TXfnDie4Xgj24svzbye=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/AeVZqwDPLzUMZb3JAV2qsD8KbxRnioA176cE3DYBANpYY3TyCQljLcfTKmlGvV5Xdt52AJkjT65ok8t4d0cYnobvIQ=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/Hqn2xlSKEuxQfBe-YHPlhUMjox2G0ZpYd1ouFx9ATfb_YbwtqfVkp9v8AjBI9RzBghbH9yci-cxdoJnwL8VCskRZMQ=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/0YMjrWbn7_iSWpjvF45C2xdswzPDZZ8Qf2cPeM2-VrQF8PNX9F0sWWjr-CBbCOH0kogD0CEW2uewbx5TyvLAf1Ia=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/YaXuIdUkKlr7g5tq2mpY8uWvckzknb6xyv9TD6iam0-6ri-7_a1jjntmTv3dz0x0kz38lEUEHW-r9q6zp0eMwPov=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/cLm5vTn9bPNn6QvxuJdcqgP3JF47XB4hKm9rP3XibkyT2arxWo_HwCa6c8RwcIV4Et0c1TXfnDie4Xgj24svzbye=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/AeVZqwDPLzUMZb3JAV2qsD8KbxRnioA176cE3DYBANpYY3TyCQljLcfTKmlGvV5Xdt52AJkjT65ok8t4d0cYnobvIQ=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/cLm5vTn9bPNn6QvxuJdcqgP3JF47XB4hKm9rP3XibkyT2arxWo_HwCa6c8RwcIV4Et0c1TXfnDie4Xgj24svzbye=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/AeVZqwDPLzUMZb3JAV2qsD8KbxRnioA176cE3DYBANpYY3TyCQljLcfTKmlGvV5Xdt52AJkjT65ok8t4d0cYnobvIQ=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/Hqn2xlSKEuxQfBe-YHPlhUMjox2G0ZpYd1ouFx9ATfb_YbwtqfVkp9v8AjBI9RzBghbH9yci-cxdoJnwL8VCskRZMQ=s1280",
+    },
+    {
+      "index": 3,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/3",
+      "rawUrl": "https://lh3.googleusercontent.com/0YMjrWbn7_iSWpjvF45C2xdswzPDZZ8Qf2cPeM2-VrQF8PNX9F0sWWjr-CBbCOH0kogD0CEW2uewbx5TyvLAf1Ia=s1280",
+    },
+    {
+      "index": 4,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/hmdcmlfkchdmnmnmheododdhjedfccka/screenshots/4",
+      "rawUrl": "https://lh3.googleusercontent.com/YaXuIdUkKlr7g5tq2mpY8uWvckzknb6xyv9TD6iam0-6ri-7_a1jjntmTv3dz0x0kz38lEUEHW-r9q6zp0eMwPov=s1280",
+    },
+  ],
+  "shortDescription": "Pick colors from any website.",
+  "storeUrl": "https://chromewebstore.google.com/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka",
+  "users": 1000000,
+  "version": "4.10.3.12",
+  "weeklyActiveUsers": 1000000,
+}
+`;
