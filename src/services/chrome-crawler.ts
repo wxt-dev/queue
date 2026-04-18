@@ -1,7 +1,7 @@
 import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
-import { buildScreenshotUrl } from "../utils/urls";
 import { ExtensionStoreName } from "../enums";
+import { buildScreenshotUrl } from "../utils/urls";
 
 export async function crawlExtension(
   id: string,
@@ -26,7 +26,7 @@ export async function crawlExtension(
     // const date = new Date();
     // const dateString = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
     // Bun.write(
-    //   `src/crawlers/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
+    //   `src/services/__tests__/fixtures/chrome-web-store/.new/${dateString}-${id}.html`,
     //   html,
     // );
   }
