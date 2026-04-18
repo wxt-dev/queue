@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.4.10
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.9...v0.4.10)
+
+### 🩹 Fixes
+
+- Update Chrome Web Store crawler selector for user count ([#9](https://github.com/wxt-dev/queue/pull/9))
+
+### 🏡 Chore
+
+- Use `--frozen-lockfile` in docker image ([53371e3](https://github.com/wxt-dev/queue/commit/53371e3))
+
+### ❤️ Contributors
+
+- WBW Software Admin ([@whiteboard-works](https://github.com/whiteboard-works))
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.9
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.8...v0.4.9)
