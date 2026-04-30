@@ -1,8 +1,5 @@
 import DataLoader from "dataloader";
 import type { Cache } from "./cache";
-import { createLogger } from "@aklinker1/logger";
-
-const logger = createLogger("extension-store");
 
 export type ExtensionId = string | number;
 
