@@ -1,7 +1,8 @@
 import { DAY_MS } from "../utils/time";
 import type { Cache } from "./cache";
 
-const EXPIRATION = DAY_MS / 1000; // 24 hours in seconds
+const TTL = DAY_MS;
+const TTL_S = TTL / 1000;
 
 export function createRedisCache(): Cache {
   return {
@@ -14,7 +15,7 @@ export function createRedisCache(): Cache {
     },
     async set<T>(key: string, value: T): Promise<void> {
       await Bun.redis.set(key, JSON.stringify(value));
-      await Bun.redis.expire(key, EXPIRATION);
+      await Bun.redis.expire(key, TTL_S);
     },
   };
 }
