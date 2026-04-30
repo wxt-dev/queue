@@ -8,9 +8,8 @@ export function createRedisCache(): Cache {
   return {
     async get<T>(key: string): Promise<T | undefined> {
       const value = await Bun.redis.get(key);
-      if (value === null) {
-        return undefined;
-      }
+      if (value == null) return undefined;
+
       return JSON.parse(value) as T;
     },
     async set<T>(key: string, value: T): Promise<void> {
