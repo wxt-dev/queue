@@ -60,7 +60,7 @@ jobs:
 
       - name: Update Production Deployment
         run: |
-          curl -X POST -i -H 'X-API-Key: ${{ secrets.UPDATE_PROD_WEBHOOK_API_KEY }}' ${{ secrets.UPDATE_PROD_WEBHOOK }}
+          curl -X POST -i ${{ secrets.REDEPLOY_WEBHOOK }}
 
       - name: GitHub Release
         run: bunx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
