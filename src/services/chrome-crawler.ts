@@ -204,7 +204,7 @@ function tryExtract<T>(
       errors.push(error as Error);
     }
   }
-  errors.forEach((err) => console.error(err));
+  if (errors.length > 0) logger.error("Crawl errors", { errors });
   throw new Error(`Could not extract "${field}" from HTML`, { cause: errors });
 }
 

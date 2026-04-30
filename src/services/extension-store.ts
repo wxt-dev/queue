@@ -1,74 +1,72 @@
-import { createCachedDataLoader } from "../utils/cache";
-import { HOUR_MS } from "../utils/time";
+import DataLoader from "dataloader";
+import type { Cache } from "./cache";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("extension-store");
 
 export type ExtensionId = string | number;
 
-export interface ExtensionStore<TGqlExtension extends Gql.Extension> {
+export class ExtensionStore<TGqlExtension extends Gql.Extension> {
+  private dataloader: DataLoader<ExtensionId, TGqlExtension>;
+
+  constructor(
+    readonly options: {
+      cacheKeyPrefix: string;
+      fetch: (id: ExtensionId) => Promise<TGqlExtension | undefined>;
+      cache: Cache;
+    },
+  ) {
+    logger.info("CREATED EXTENSION STORE", {
+      prefix: options.cacheKeyPrefix,
+    });
+    this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
+      async (ids): Promise<Array<TGqlExtension | Error>> => {
+        const results = await Promise.allSettled(
+          ids.map(async (id) => {
+            const cacheKey = options.cacheKeyPrefix + id;
+            const cached = await options.cache.get(cacheKey);
+            if (cached) return cached;
+
+            const result = await options.fetch(id);
+            if (result) await options.cache.set(cacheKey, result);
+
+            return result;
+          }),
+        );
+        return results.map((res) =>
+          res.status === "fulfilled" ? res.value : res.reason,
+        );
+      },
+    );
+  }
+
   /**
    * Get an extension by it's ID.
    */
-  getExtension: (
-    extensionId: ExtensionId,
-  ) => Promise<TGqlExtension | undefined>;
+  getExtension(extensionId: ExtensionId): Promise<TGqlExtension> {
+    return this.dataloader.load(extensionId);
+  }
 
   /**
    * Get multiple extensions by their IDs.
    */
-  getExtensions: (
+  async getExtensions(
     extensionIds: ExtensionId[],
-  ) => Promise<(TGqlExtension | undefined)[]>;
+  ): Promise<(TGqlExtension | Error)[]> {
+    return this.dataloader.loadMany(extensionIds);
+  }
 
   /**
    * Get a screenshot given an index.
    */
-  getScreenshotUrl(
+  async getScreenshotUrl(
     extensionId: ExtensionId,
     screenshotIndex: number,
-  ): Promise<string | undefined>;
-}
-
-export function defineExtensionStore<TGqlExtension extends Gql.Extension>(
-  fetch: (id: ExtensionId) => Promise<TGqlExtension | undefined>,
-): ExtensionStore<TGqlExtension> {
-  const loader = createCachedDataLoader<ExtensionId, TGqlExtension | undefined>(
-    HOUR_MS,
-    async (ids) => {
-      const results = await Promise.allSettled(ids.map((id) => fetch(id)));
-      return results.map((res) =>
-        res.status === "fulfilled" ? res.value : undefined,
-      );
-    },
-  );
-
-  const getExtension: ExtensionStore<TGqlExtension>["getExtension"] = (
-    extensionId,
-  ) => loader.load(extensionId);
-
-  const getExtensions: ExtensionStore<TGqlExtension>["getExtensions"] = async (
-    extensionIds,
-  ) => {
-    const result = await loader.loadMany(extensionIds);
-    return result.map((item, index) => {
-      if (item instanceof Error) {
-        console.warn("Error loading extension:", extensionIds[index], item);
-        return undefined;
-      }
-      return item;
-    });
-  };
-
-  const getScreenshotUrl: ExtensionStore<TGqlExtension>["getScreenshotUrl"] =
-    async (extensionId, screenshotIndex) => {
-      const extension = await getExtension(extensionId);
-      const screenshot = extension?.screenshots.find(
-        (screenshot) => screenshot.index == screenshotIndex,
-      );
-      return screenshot?.rawUrl;
-    };
-
-  return {
-    getExtension,
-    getExtensions,
-    getScreenshotUrl,
-  };
+  ): Promise<string | undefined> {
+    const extension = await this.getExtension(extensionId);
+    const screenshot = extension.screenshots.find(
+      (screenshot) => screenshot.index == screenshotIndex,
+    );
+    return screenshot?.rawUrl;
+  }
 }

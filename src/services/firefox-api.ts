@@ -1,6 +1,7 @@
 import { buildScreenshotUrl } from "../utils/urls";
 import { ExtensionStoreName } from "../enums";
 import { createLogger } from "@aklinker1/logger";
+import { FetchError } from "../utils/errors";
 
 const logger = createLogger("firefox-api");
 
@@ -43,10 +44,7 @@ export function createFirefoxApi(): FirefoxApi {
       `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`,
     );
     const res = await fetch(url);
-    if (res.status !== 200)
-      throw Error(
-        `${url.href} failed with status: ${res.status} ${res.statusText}`,
-      );
+    if (res.status !== 200) throw new FetchError(res, await res.text());
 
     const json = (await res.json()) as GetAddon200Response;
     logger.debug("Addon result", { idOrSlugOrGuid, json });
