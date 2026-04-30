@@ -22,11 +22,10 @@ export const extensionStoreApis = createApp({
         index: z.coerce.number().int().min(0),
       }),
     },
-    async ({ params, stores, set }) => {
-      const screenshotUrl = await stores[params.storeName].getScreenshotUrl(
-        params.id,
-        params.index,
-      );
+    async ({ params, deps, set }) => {
+      const screenshotUrl = await deps.stores[
+        params.storeName
+      ].getScreenshotUrl(params.id, params.index);
       if (!screenshotUrl)
         throw new NotFoundHttpError("Extension or screenshot not found");
 

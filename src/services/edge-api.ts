@@ -1,6 +1,7 @@
 import { createLogger } from "@aklinker1/logger";
 import { ExtensionStoreName } from "../enums";
 import { buildScreenshotUrl } from "../utils/urls";
+import { FetchError } from "../utils/errors";
 
 const logger = createLogger("edge-api");
 
@@ -41,13 +42,10 @@ export function createEdgeApi(): EdgeApi {
     const res = await fetch(
       `https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/${crxid}`,
     );
-    if (res.status !== 200) {
-      throw Error("Edge API request failed", { cause: res });
-    }
+    if (res.status !== 200) throw new FetchError(res, await res.text());
 
     const json = (await res.json()) as GetProductDetailsByCrxId200Response;
     logger.debug("Addon result", { crxid, json });
-
     return toGqlEdgeAddon(json);
   };
 

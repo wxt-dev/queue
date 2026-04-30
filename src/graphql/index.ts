@@ -19,10 +19,14 @@ export function createGraphql() {
 
     logger.debug("Running query", { id, method, operationName });
 
+    const ctx: Gql.WxtQueueCtx = {
+      deps: container.registrations,
+    };
+
     const response = await graphql({
       schema,
       source: query,
-      contextValue: container.registrations,
+      contextValue: ctx,
       variableValues: variables,
       rootValue: rootResolver,
     });

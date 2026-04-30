@@ -76,13 +76,16 @@ function capitalizeFirstLetter(str: string): string {
   return str[0]!.toUpperCase() + str.substring(1);
 }
 
-function getTsTypeString(gqlType: any): string {
+function getTsTypeString(gqlType: any, isReturn?: boolean): string {
   if (gqlType.kind === "NON_NULL")
-    return `NonNullable<${getTsTypeString(gqlType.ofType)}>`;
+    return getTsTypeString(gqlType.ofType, isReturn).replace(
+      " | undefined",
+      "",
+    );
   if (gqlType.kind === "LIST")
-    return `Array<${getTsTypeString(gqlType.ofType)}> | undefined`;
+    return `Array<${getTsTypeString(gqlType.ofType, isReturn)}> | undefined`;
   if (gqlType.kind === "SCALAR" || gqlType.kind === "OBJECT")
-    return `${gqlType.name} | undefined`;
+    return `${gqlType.name}${isReturn ? " | Error" : ""} | undefined`;
 
   logger.warn("Unknown GQL -> TS type", { gqlType });
   return "unknown";
@@ -114,6 +117,7 @@ function writeObjectType(code: CodeBlockWriter, argTypes: any[], type: any) {
         };
         args = `(args: ${argsType.name}, ctx: WxtQueueCtx)`;
         argTypes.push(argsType);
+        returnTypeStr = getTsTypeString(field.type, true);
         returnTypeStr = `Promise<${returnTypeStr}> | ${returnTypeStr}`;
       }
       code.writeLine(`"${field.name}"${args}: ${returnTypeStr}`);
