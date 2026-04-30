@@ -16,9 +16,6 @@ export class ExtensionStore<TGqlExtension extends Gql.Extension> {
       cache: Cache;
     },
   ) {
-    logger.info("CREATED EXTENSION STORE", {
-      prefix: options.cacheKeyPrefix,
-    });
     this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
       async (ids): Promise<Array<TGqlExtension | Error>> => {
         const results = await Promise.allSettled(
