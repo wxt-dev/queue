@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.4.12
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.11...v0.4.12)
+
+### 🚀 Enhancements
+
+- Improved memory managment and cleanup ([#11](https://github.com/wxt-dev/queue/pull/11))
+
+### 🤖 CI
+
+- Update deploy webhook ([a0300ae](https://github.com/wxt-dev/queue/commit/a0300ae))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.11
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.10...v0.4.11)
