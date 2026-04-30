@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.4.11
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.10...v0.4.11)
+
+### 🏡 Chore
+
+- Update download path for chrome crawler debugging ([6aab516](https://github.com/wxt-dev/queue/commit/6aab516))
+- Switch to logger with JSON support ([23ac524](https://github.com/wxt-dev/queue/commit/23ac524))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.10
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.9...v0.4.10)
