@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.4.14
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.13...v0.4.14)
+
+### 🤖 CI
+
+- Update redeploy webhook setup ([587d71a](https://github.com/wxt-dev/queue/commit/587d71a))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.13
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.12...v0.4.13)
