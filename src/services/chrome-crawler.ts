@@ -1,14 +1,16 @@
-import consola from "consola";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
 import { ExtensionStoreName } from "../enums";
 import { buildScreenshotUrl } from "../utils/urls";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("chrome-crawler");
 
 export async function crawlExtension(
   id: string,
   lang: string,
   canGenerateTestFixture = false,
 ): Promise<Gql.ChromeExtension | undefined> {
-  consola.info("Crawling " + id);
+  logger.info("Start", { id, lang });
   const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
   const res = await fetch(url, {
     headers: {
@@ -173,7 +175,7 @@ export async function crawlExtension(
     reviewCount,
     screenshots,
   };
-  consola.debug("Crawl results:", result);
+  logger.debug("Crawl complete", { id, result });
   return result;
 }
 

@@ -4,15 +4,16 @@ ignorePaths:
   - src/@types/gql.d.ts
   - "**/*.snap"
 words:
-  - aklinker
-  - klinker
-  - linkedom
-  - oxlint
-  - importmap
-  - ocfdgncpifmegplaglcnglhioflaimkd
-  - grpahql
-  - libstdc
-  - libgcc
   - adduser
-  - microsoftedge
+  - aklinker
   - crxid
+  - grpahql
+  - importmap
+  - klinker
+  - libgcc
+  - libstdc
+  - linkedom
+  - microsoftedge
+  - noindexed
+  - ocfdgncpifmegplaglcnglhioflaimkd
+  - oxlint

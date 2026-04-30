@@ -1,5 +1,8 @@
+import { createLogger } from "@aklinker1/logger";
 import { ExtensionStoreName } from "../enums";
 import { buildScreenshotUrl } from "../utils/urls";
+
+const logger = createLogger("edge-api");
 
 export interface EdgeApi {
   getAddon(crxid: string): Promise<Gql.EdgeAddon>;
@@ -34,6 +37,7 @@ export function createEdgeApi(): EdgeApi {
   });
 
   const getAddon: EdgeApi["getAddon"] = async (crxid) => {
+    logger.info("Get addon", { crxid });
     const res = await fetch(
       `https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/${crxid}`,
     );
@@ -42,6 +46,7 @@ export function createEdgeApi(): EdgeApi {
     }
 
     const json = (await res.json()) as GetProductDetailsByCrxId200Response;
+    logger.debug("Addon result", { crxid, json });
 
     return toGqlEdgeAddon(json);
   };

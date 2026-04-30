@@ -1,9 +1,10 @@
 import { buildSchema, graphql } from "graphql";
 import gqlSchema from "../assets/schema.gql" with { type: "text" };
 import { rootResolver } from "./resolvers";
-import { consola } from "consola";
-import pc from "picocolors";
 import { container } from "../dependencies";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("gql");
 
 export function createGraphql() {
   const schema = buildSchema(gqlSchema);
@@ -15,11 +16,8 @@ export function createGraphql() {
     const { operationName = "Unknown", query, variables } = body;
 
     const start = performance.now();
-    consola.debug(
-      `${pc.dim(`<-- [${id}]`)} ${pc.green(method)} ${pc.cyan(
-        pc.bold(operationName),
-      )}`,
-    );
+
+    logger.debug("Running query", { id, method, operationName });
 
     const response = await graphql({
       schema,
@@ -30,11 +28,12 @@ export function createGraphql() {
     });
 
     const end = performance.now();
-    consola.debug(
-      `${pc.dim(`--> [${id}]`)} ${pc.green(method)} ${pc.cyan(
-        pc.bold(operationName),
-      )} ${(end - start).toFixed(3)}ms`,
-    );
+    logger.debug("Query finished", {
+      id,
+      method,
+      operationName,
+      durationMs: end - start,
+    });
 
     return response;
   };

@@ -1,4 +1,3 @@
-import consola from "consola";
 import { createApp } from "@aklinker1/zeta";
 import { corsPlugin } from "./plugins/cors-plugin";
 import { graphqlApis } from "./apis/graphql-apis";
@@ -8,6 +7,9 @@ import { version } from "./version";
 import dedent from "dedent";
 import { systemApis } from "./apis/system-apis";
 import { OpenApiTag } from "./enums";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("http");
 
 const app = createApp({
   schemaAdapter: zodSchemaAdapter,
@@ -47,7 +49,7 @@ const app = createApp({
     ],
   },
 })
-  .onGlobalError(({ error }) => void consola.error(error))
+  .onGlobalError(({ error }) => void logger.error("Request error", { error }))
   .use(corsPlugin)
   .use(systemApis)
   .use(extensionStoreApis)

@@ -1,6 +1,8 @@
-import consola from "consola";
 import { buildScreenshotUrl } from "../utils/urls";
 import { ExtensionStoreName } from "../enums";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("firefox-api");
 
 export interface FirefoxApi {
   getAddon(idOrSlugOrGuid: number | string): Promise<Gql.FirefoxAddon>;
@@ -36,7 +38,7 @@ export function createFirefoxApi(): FirefoxApi {
   const getAddon: FirefoxApi["getAddon"] = async (
     idOrSlugOrGuid: number | string,
   ): Promise<Gql.FirefoxAddon> => {
-    consola.info("Fetching " + idOrSlugOrGuid);
+    logger.info("Get addon", { idOrSlugOrGuid });
     const url = new URL(
       `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`,
     );
@@ -47,6 +49,8 @@ export function createFirefoxApi(): FirefoxApi {
       );
 
     const json = (await res.json()) as GetAddon200Response;
+    logger.debug("Addon result", { idOrSlugOrGuid, json });
+
     return toGqlFirefoxAddon(json);
   };
 

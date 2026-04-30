@@ -1,7 +1,9 @@
 import CodeBlockWriter from "code-block-writer";
-import { consola } from "consola";
 import type { ServerSideFetch } from "@aklinker1/zeta/types";
 import app from "../src/server";
+import { createLogger } from "@aklinker1/logger";
+
+const logger = createLogger("gen:gql-types");
 
 const typesFile = Bun.file("src/@types/gql.d.ts");
 
@@ -13,7 +15,7 @@ const scalarNameToTs = {
 };
 
 export async function generateGqlTypes(fetch: ServerSideFetch = app.build()) {
-  consola.info("Generating GraphQL types...");
+  logger.info("Starting...");
   const introspection = await introspect(fetch);
 
   const {
@@ -53,7 +55,7 @@ export async function generateGqlTypes(fetch: ServerSideFetch = app.build()) {
         case "INTERFACE":
           return writeObjectType(code, argTypes, type);
         default:
-          return consola.warn("Unknown kind:", {
+          return logger.warn("Unknown kind:", {
             kind: type.kind,
             name: type.name,
           });
@@ -66,7 +68,7 @@ export async function generateGqlTypes(fetch: ServerSideFetch = app.build()) {
   code.newLine();
 
   await Bun.write(typesFile, code.toString());
-  consola.success("Generated GraphQL types");
+  logger.success("Done");
 }
 
 function capitalizeFirstLetter(str: string): string {
@@ -82,7 +84,7 @@ function getTsTypeString(gqlType: any): string {
   if (gqlType.kind === "SCALAR" || gqlType.kind === "OBJECT")
     return `${gqlType.name} | undefined`;
 
-  consola.warn("Unknown TS type:", gqlType);
+  logger.warn("Unknown GQL -> TS type", { gqlType });
   return "unknown";
 }
 
@@ -124,7 +126,7 @@ function writeScalarType(code: CodeBlockWriter, type: any) {
   // @ts-expect-error
   const typeStr = scalarNameToTs[type.name];
   if (typeStr == null) {
-    consola.warn("Unknown scalar type:", type);
+    logger.warn("Unknown scalar type:", { type });
   }
   code.writeLine(`type ${type.name} = ${typeStr || "unknown"};`);
 }
