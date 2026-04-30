@@ -1,9 +1,14 @@
+import { createLogger } from "@aklinker1/logger";
 import { HOUR_MS } from "../utils/time";
 import type { Cache } from "./cache";
+
+const logger = createLogger("redis");
 
 const TTL = HOUR_MS;
 
 export function createInMemoryCache(): Cache {
+  logger.info("Using in-memory cache");
+
   let cache: Record<string, any> = Object.create(null);
   let ttl: Record<string, number> = Object.create(null);
 
