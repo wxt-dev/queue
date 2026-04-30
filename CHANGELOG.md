@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.4.13
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.12...v0.4.13)
+
+### 🩹 Fixes
+
+- Add logs to indicate which cache to use ([4d9b034](https://github.com/wxt-dev/queue/commit/4d9b034))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.12
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.11...v0.4.12)
