@@ -75,6 +75,9 @@ export async function crawlExtension(
           break;
         }
       }
+      // Extensions with zero users don't have any text in the div
+      if (!userCountRow) return 0;
+
       removeAnchorChildren(userCountRow);
       return (
         userCountRow?.textContent

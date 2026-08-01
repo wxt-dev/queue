@@ -329,3 +329,81 @@ With just two clicks, Eye Dropper allows you to pick colors from any website wit
   "weeklyActiveUsers": 1000000,
 }
 `;
+
+exports[`Chrome Web Store Crawler should extract extension details from 2026-08-01-dhiekgdaipindoapjmcnpompdknjeijf.html 1`] = `
+{
+  "iconUrl": "https://lh3.googleusercontent.com/kCV1v9ubDPiIomYY20zZZ8HxXp6zQHSpcPbLJjWBnraCn6Q1lFLRhn87v-sBf7j-2Wsq7pjPeyGNm0HDYrYEe6FFmw=s256",
+  "id": "dhiekgdaipindoapjmcnpompdknjeijf",
+  "lastUpdated": "March 26, 2026",
+  "longDescription": 
+"Glossy New Tab – Customize Your Dashboard
+Stop wasting your new tab. With Glossy New Tab, every new tab becomes a beautiful, functional dashboard that keeps you organized, informed, and inspired.
+🌟 Features
+🔍 Smart Search Bar: Search the web instantly with Google, Bing, DuckDuckGo, Yahoo, or Ecosia.
+⚡ Quick Shortcuts: Add, edit, and manage your favorite websites easily via a right-click context menu.
+🕐 Clock Widget: Sleek digital and analog clock with the current date.
+🌤️ Weather Widget: Real-time weather updates based on your location.
+🎵 Audio Player: Play background music seamlessly—even when the tab isn’t active.
+🎨 Custom Backgrounds: Upload and manage your own images or videos; stored locally for speed and privacy.
+⚙️ Settings Sidebar: Full control over themes, widgets, and layout with an intuitive interface.
+Why Install?
+Search Smarter: Instantly search the web using Google, Bing, DuckDuckGo, Yahoo, or Ecosia without opening a separate page.
+Access Favorites Fast: One-click shortcuts to your most-used websites, easily added, edited, or managed.
+Stay on Time & Informed: Elegant clock and real-time weather widgets keep you aware at a glance.
+Enjoy Background Audio: Play music or sounds without interrupting your browsing.
+Personalize Your Space: Upload your own images or videos to create a dashboard that feels truly yours.
+Full Customization: Adjust themes, layout, and widgets easily via the intuitive settings sidebar.
+Upgrade your browsing experience—make every new tab a beautiful, functional workspace."
+,
+  "name": "Glossy New Tab - Say Goodbye to Boring Tabs",
+  "rating": 4.6,
+  "reviewCount": 10,
+  "screenshots": [
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/gj2e-tiTc3QYptxlIEcVfRogxZcXaJ_uQu09lK4wwI9ih1f765cnB4Vx-Z2m3ib7YxxeWWonL5ZF2CAHZCAcVck6=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5cf2eynPB11FLePhVBJmft3XXcJJ9Y6ZPL_jcPB2T-eX1k2YW5JORQN5kPvPzvQfQH2GytQWi7iTB1sEfSkafoLY7Q=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/fZfIjaptorXfgT-JAsfUsqpHsxweFuMmqfDafphvbDsGdaKtLROsUPeE8_6kmI0QIHOotPMoKiEWbIpcB1wajTaGx_o=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/gj2e-tiTc3QYptxlIEcVfRogxZcXaJ_uQu09lK4wwI9ih1f765cnB4Vx-Z2m3ib7YxxeWWonL5ZF2CAHZCAcVck6=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5cf2eynPB11FLePhVBJmft3XXcJJ9Y6ZPL_jcPB2T-eX1k2YW5JORQN5kPvPzvQfQH2GytQWi7iTB1sEfSkafoLY7Q=s1280",
+    },
+    {
+      "index": 0,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/0",
+      "rawUrl": "https://lh3.googleusercontent.com/5cf2eynPB11FLePhVBJmft3XXcJJ9Y6ZPL_jcPB2T-eX1k2YW5JORQN5kPvPzvQfQH2GytQWi7iTB1sEfSkafoLY7Q=s1280",
+    },
+    {
+      "index": 1,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/1",
+      "rawUrl": "https://lh3.googleusercontent.com/fZfIjaptorXfgT-JAsfUsqpHsxweFuMmqfDafphvbDsGdaKtLROsUPeE8_6kmI0QIHOotPMoKiEWbIpcB1wajTaGx_o=s1280",
+    },
+    {
+      "index": 2,
+      "indexUrl": "http://localhost:3000/api/rest/chrome-web-store/dhiekgdaipindoapjmcnpompdknjeijf/screenshots/2",
+      "rawUrl": "https://lh3.googleusercontent.com/gj2e-tiTc3QYptxlIEcVfRogxZcXaJ_uQu09lK4wwI9ih1f765cnB4Vx-Z2m3ib7YxxeWWonL5ZF2CAHZCAcVck6=s1280",
+    },
+  ],
+  "shortDescription": "Your Boring New Tab Is Dead - Meet Glossy New Tab, It allows you to apply live wallpapers in your new tab.",
+  "storeUrl": "https://chromewebstore.google.com/detail/glossy-new-tab-say-goodby/dhiekgdaipindoapjmcnpompdknjeijf",
+  "users": 0,
+  "version": "0.0.5",
+  "weeklyActiveUsers": 0,
+}
+`;
