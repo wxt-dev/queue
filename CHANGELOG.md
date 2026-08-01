@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.4.15
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.14...v0.4.15)
+
+### 🩹 Fixes
+
+- **chrome:** Don't error when there are no users ([5b0ff54](https://github.com/wxt-dev/queue/commit/5b0ff54))
+
+### 🏡 Chore
+
+- Fix spelling ([4ee207f](https://github.com/wxt-dev/queue/commit/4ee207f))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.14
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.13...v0.4.14)
