@@ -1,7 +1,8 @@
 #!/usr/bin/env bun
-import app from "./server";
-import { version } from "../package.json";
 import { createLogger } from "@aklinker1/logger";
+
+import { version } from "../package.json";
+import app from "./server";
 
 const logger = createLogger("http");
 

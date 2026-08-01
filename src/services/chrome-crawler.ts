@@ -1,7 +1,8 @@
+import { createLogger } from "@aklinker1/logger";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
+
 import { ExtensionStoreName } from "../enums";
 import { buildScreenshotUrl } from "../utils/urls";
-import { createLogger } from "@aklinker1/logger";
 
 const logger = createLogger("chrome-crawler");
 
@@ -42,11 +43,7 @@ export async function crawlExtension(
   }
 
   const name = tryExtract("name", validateNonEmptyString, [
-    () =>
-      metaContent(document, "property=og:title")?.replace(
-        / - Chrome Web Store$/,
-        "",
-      ),
+    () => metaContent(document, "property=og:title")?.replace(/ - Chrome Web Store$/, ""),
   ]);
   const storeUrl = tryExtract("storeUrl", validateNonEmptyString, [
     () => metaContent(document, "property=og:url"),
@@ -54,11 +51,9 @@ export async function crawlExtension(
   const iconUrl = tryExtract("iconUrl", validateNonEmptyString, [
     () => metaContent(document, "property=og:image")?.replace(/=.+?$/, "=s256"),
   ]);
-  const shortDescription = tryExtract(
-    "shortDescription",
-    validateNonEmptyString,
-    [() => metaContent(document, "property=og:description")],
-  );
+  const shortDescription = tryExtract("shortDescription", validateNonEmptyString, [
+    () => metaContent(document, "property=og:description"),
+  ]);
 
   // Header
 
@@ -95,10 +90,7 @@ export async function crawlExtension(
       document.querySelector(
         "main > * > section:first-child > section > div > div:nth-child(2) > span > span > span",
       )?.textContent,
-    () =>
-      document.querySelector("body").textContent.includes("No ratings")
-        ? 0
-        : undefined,
+    () => (document.querySelector("body").textContent.includes("No ratings") ? 0 : undefined),
   ]);
 
   const reviewCount = tryExtract("reviewCount", validateInt, [
@@ -108,17 +100,12 @@ export async function crawlExtension(
           "main > * > section:first-child > section > div > div:nth-child(2) > span > span > span:last-child > a",
         )
         ?.textContent?.replace(" ratings", ""),
-    () =>
-      document.querySelector("body").textContent.includes("No ratings")
-        ? 0
-        : undefined,
+    () => (document.querySelector("body").textContent.includes("No ratings") ? 0 : undefined),
   ]);
 
   const version = tryExtract("version", validateNonEmptyString, [
     () => {
-      const listItems = [
-        ...document.querySelectorAll("main > * > section:nth-child(5) li"),
-      ];
+      const listItems = [...document.querySelectorAll("main > * > section:nth-child(5) li")];
       const li = listItems.find((item) => item.textContent.includes("Version"));
       return li?.querySelector(":scope > *:last-child")?.textContent;
     },
@@ -126,24 +113,18 @@ export async function crawlExtension(
 
   const lastUpdated = tryExtract("lastUpdated", validateNonEmptyString, [
     () => {
-      const listItems = [
-        ...document.querySelectorAll("main > * > section:nth-child(5) li"),
-      ];
+      const listItems = [...document.querySelectorAll("main > * > section:nth-child(5) li")];
       const li = listItems.find((item) => item.textContent.includes("Updated"));
       return li?.querySelector(":scope > *:last-child")?.textContent;
     },
   ]);
 
-  const longDescription = tryExtract(
-    "longDescription",
-    validateNonEmptyString,
-    [
-      () =>
-        document
-          .querySelector("main > * > section:nth-child(3) p:last-child")
-          ?.textContent?.replaceAll("\n\n", "\n"),
-    ],
-  );
+  const longDescription = tryExtract("longDescription", validateNonEmptyString, [
+    () =>
+      document
+        .querySelector("main > * > section:nth-child(3) p:last-child")
+        ?.textContent?.replaceAll("\n\n", "\n"),
+  ]);
 
   const screenshots = tryExtract("screenshots", validateGqlScreenshots, [
     () =>
@@ -154,11 +135,7 @@ export async function crawlExtension(
           return {
             index,
             rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
-            indexUrl: buildScreenshotUrl(
-              ExtensionStoreName.ChromeWebStore,
-              id,
-              index,
-            ),
+            indexUrl: buildScreenshotUrl(ExtensionStoreName.ChromeWebStore, id, index),
           };
         }),
   ]);
@@ -182,22 +159,16 @@ export async function crawlExtension(
   return result;
 }
 
-function metaContent(
-  document: HTMLElement,
-  attrSelector: string,
-): string | undefined {
-  return document
-    .querySelector(`meta[${attrSelector}]`)
-    ?.getAttribute("content")
-    .trim();
+function metaContent(document: HTMLElement, attrSelector: string): string | undefined {
+  return document.querySelector(`meta[${attrSelector}]`)?.getAttribute("content").trim();
 }
 
-/** Try each of the different functions, collecting errors, and return the first value that can be parsed correctly. If no options succeed, return an error containing all the errors in it's cause. */
-function tryExtract<T>(
-  field: string,
-  validate: (value: any) => T,
-  extractors: (() => any)[],
-): T {
+/**
+ * Try each of the different functions, collecting errors, and return the first value that can be
+ * parsed correctly. If no options succeed, return an error containing all the errors in it's
+ * cause.
+ */
+function tryExtract<T>(field: string, validate: (value: any) => T, extractors: (() => any)[]): T {
   const errors: Error[] = [];
   for (const extract of extractors) {
     try {
@@ -254,7 +225,5 @@ function validateGqlScreenshots(value: any): Gql.Screenshot[] {
 }
 
 function removeAnchorChildren(element: HTMLElement | null | undefined): void {
-  element
-    ?.querySelectorAll("a")
-    .forEach((anchor: HTMLAnchorElement) => anchor.remove());
+  element?.querySelectorAll("a").forEach((anchor: HTMLAnchorElement) => anchor.remove());
 }

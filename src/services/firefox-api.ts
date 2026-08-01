@@ -1,7 +1,8 @@
-import { buildScreenshotUrl } from "../utils/urls";
-import { ExtensionStoreName } from "../enums";
 import { createLogger } from "@aklinker1/logger";
+
+import { ExtensionStoreName } from "../enums";
 import { FetchError } from "../utils/errors";
+import { buildScreenshotUrl } from "../utils/urls";
 
 const logger = createLogger("firefox-api");
 
@@ -28,11 +29,7 @@ export function createFirefoxApi(): FirefoxApi {
     screenshots: (res.previews as any[]).map<Gql.Screenshot>((preview, i) => ({
       index: i,
       rawUrl: preview.image_url,
-      indexUrl: buildScreenshotUrl(
-        ExtensionStoreName.FirefoxAddonStore,
-        String(res.id),
-        i,
-      ),
+      indexUrl: buildScreenshotUrl(ExtensionStoreName.FirefoxAddonStore, String(res.id), i),
     })),
   });
 
@@ -40,9 +37,7 @@ export function createFirefoxApi(): FirefoxApi {
     idOrSlugOrGuid: number | string,
   ): Promise<Gql.FirefoxAddon> => {
     logger.info("Get addon", { idOrSlugOrGuid });
-    const url = new URL(
-      `https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`,
-    );
+    const url = new URL(`https://addons.mozilla.org/api/v5/addons/addon/${idOrSlugOrGuid}`);
     const res = await fetch(url);
     if (res.status !== 200) throw new FetchError(res, await res.text());
 

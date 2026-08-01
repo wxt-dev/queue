@@ -11,9 +11,7 @@ export class FetchError extends Error {
     this.name = "FetchError";
     this.url = response.url;
     this.status = response.status;
-    this.body = response.headers
-      .get("content-type")
-      ?.includes("application/json")
+    this.body = response.headers.get("content-type")?.includes("application/json")
       ? JSON.parse(body)
       : body.length > 100
         ? body.slice(0, 100) + "..."

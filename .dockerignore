@@ -8,7 +8,7 @@ scripts
 LICENSE
 Dockerfile
 .output
-.prettierignore
+.oxfmtrc.json
 .git
 .gitattributes
 .dockerignore

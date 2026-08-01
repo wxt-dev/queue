@@ -1,7 +1,8 @@
 import { createLogger } from "@aklinker1/logger";
+
 import { ExtensionStoreName } from "../enums";
-import { buildScreenshotUrl } from "../utils/urls";
 import { FetchError } from "../utils/errors";
+import { buildScreenshotUrl } from "../utils/urls";
 
 const logger = createLogger("edge-api");
 
@@ -10,9 +11,7 @@ export interface EdgeApi {
 }
 
 export function createEdgeApi(): EdgeApi {
-  const toGqlEdgeAddon = (
-    res: GetProductDetailsByCrxId200Response,
-  ): Gql.EdgeAddon => ({
+  const toGqlEdgeAddon = (res: GetProductDetailsByCrxId200Response): Gql.EdgeAddon => ({
     id: res.crxId,
     productId: res.storeProductId,
     iconUrl: `https:${res.logoUrl}`, // URL without the schema (ex: "//store-images.s-microsoft.com/image/...")
@@ -28,11 +27,7 @@ export function createEdgeApi(): EdgeApi {
     storeUrl: `https://microsoftedge.microsoft.com/addons/detail/${res.crxId}`,
     screenshots: res.screenshots.map((ss, i) => ({
       index: i,
-      indexUrl: buildScreenshotUrl(
-        ExtensionStoreName.EdgeAddonStore,
-        res.crxId,
-        i,
-      ),
+      indexUrl: buildScreenshotUrl(ExtensionStoreName.EdgeAddonStore, res.crxId, i),
       rawUrl: `https:${ss.uri}`, // URL without the schema (ex: "//store-images.s-microsoft.com/image/...")
     })),
   });

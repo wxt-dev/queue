@@ -1,4 +1,5 @@
 import { describe, expect, it } from "bun:test";
+
 import { crawlExtension } from "../chrome-crawler";
 
 const githubBetterLineCountsId = "ocfdgncpifmegplaglcnglhioflaimkd";
@@ -12,9 +13,7 @@ describe("Chrome Web Store Crawler E2E", () => {
         "https://lh3.googleusercontent.com/GcffNyCJaxT2G9dsQCJHhUEMlu_E0vEzph5cLPrQj7UHKat7QyCzGu69Dmp_DDUL8rY-bPMFJceQarS1wcqdwTalTg=s256",
       id: githubBetterLineCountsId,
       lastUpdated: expect.any(String),
-      longDescription: expect.stringContaining(
-        "Lots of code is generated nowadays",
-      ),
+      longDescription: expect.stringContaining("Lots of code is generated nowadays"),
       name: "GitHub Better Line Counts",
       rating: expect.any(Number),
       reviewCount: expect.any(Number),

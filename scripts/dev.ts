@@ -1,8 +1,9 @@
 #!/usr/bin/env bun
+import { createLogger } from "@aklinker1/logger";
+
+import { version } from "../package.json";
 import app from "../src/server";
 import { generateGqlTypes } from "./generate-gql-types";
-import { version } from "../package.json";
-import { createLogger } from "@aklinker1/logger";
 
 const logger = createLogger("http");
 

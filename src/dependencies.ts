@@ -1,19 +1,17 @@
 import { createIocContainer, transient } from "@aklinker1/zero-ioc";
-import { createChromeWebStore } from "./services/chrome-web-store";
-import { createFirefoxAddonStore } from "./services/firefox-addon-store";
-import { createEdgeAddonStore } from "./services/edge-addon-store";
-import type { ExtensionStores } from "./services/extension-stores";
+
 import { ExtensionStoreName } from "./enums";
-import { createRedisCache } from "./services/redis-cache";
-import { createInMemoryCache } from "./services/in-memory-cache";
+import { createChromeWebStore } from "./services/chrome-web-store";
+import { createEdgeAddonStore } from "./services/edge-addon-store";
 import { createEdgeApi } from "./services/edge-api";
+import type { ExtensionStores } from "./services/extension-stores";
+import { createFirefoxAddonStore } from "./services/firefox-addon-store";
 import { createFirefoxApi } from "./services/firefox-api";
+import { createInMemoryCache } from "./services/in-memory-cache";
+import { createRedisCache } from "./services/redis-cache";
 
 export const container = createIocContainer()
-  .register(
-    "cache",
-    Bun.redis.connected ? createRedisCache : createInMemoryCache,
-  )
+  .register("cache", Bun.redis.connected ? createRedisCache : createInMemoryCache)
   .register("edgeApi", createEdgeApi)
   .register("firefoxApi", createFirefoxApi)
   .register("chromeWebStore", transient(createChromeWebStore))

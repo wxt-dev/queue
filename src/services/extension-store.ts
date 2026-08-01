@@ -1,4 +1,5 @@
 import DataLoader from "dataloader";
+
 import type { Cache } from "./cache";
 
 export type ExtensionId = string | number;
@@ -27,32 +28,22 @@ export class ExtensionStore<TGqlExtension extends Gql.Extension> {
             return result;
           }),
         );
-        return results.map((res) =>
-          res.status === "fulfilled" ? res.value : res.reason,
-        );
+        return results.map((res) => (res.status === "fulfilled" ? res.value : res.reason));
       },
     );
   }
 
-  /**
-   * Get an extension by it's ID.
-   */
+  /** Get an extension by it's ID. */
   getExtension(extensionId: ExtensionId): Promise<TGqlExtension> {
     return this.dataloader.load(extensionId);
   }
 
-  /**
-   * Get multiple extensions by their IDs.
-   */
-  async getExtensions(
-    extensionIds: ExtensionId[],
-  ): Promise<(TGqlExtension | Error)[]> {
+  /** Get multiple extensions by their IDs. */
+  async getExtensions(extensionIds: ExtensionId[]): Promise<(TGqlExtension | Error)[]> {
     return this.dataloader.loadMany(extensionIds);
   }
 
-  /**
-   * Get a screenshot given an index.
-   */
+  /** Get a screenshot given an index. */
   async getScreenshotUrl(
     extensionId: ExtensionId,
     screenshotIndex: number,

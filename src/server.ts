@@ -1,13 +1,14 @@
+import { createLogger } from "@aklinker1/logger";
 import { createApp } from "@aklinker1/zeta";
-import { corsPlugin } from "./plugins/cors-plugin";
-import { graphqlApis } from "./apis/graphql-apis";
-import { extensionStoreApis } from "./apis/extension-store-apis";
 import { zodSchemaAdapter } from "@aklinker1/zeta/adapters/zod-schema-adapter";
-import { version } from "./version";
 import dedent from "dedent";
+
+import { extensionStoreApis } from "./apis/extension-store-apis";
+import { graphqlApis } from "./apis/graphql-apis";
 import { systemApis } from "./apis/system-apis";
 import { OpenApiTag } from "./enums";
-import { createLogger } from "@aklinker1/logger";
+import { corsPlugin } from "./plugins/cors-plugin";
+import { version } from "./version";
 
 const logger = createLogger("http");
 

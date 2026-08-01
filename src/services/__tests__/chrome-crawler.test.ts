@@ -10,19 +10,17 @@
 // 5. You're done! The test is added, run `bun test`.
 //
 import { afterAll, beforeEach, describe, expect, it, spyOn } from "bun:test";
-import { crawlExtension } from "../chrome-crawler";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
+
+import { crawlExtension } from "../chrome-crawler";
 
 const fetchSpy = spyOn(globalThis, "fetch");
 
 describe("Chrome Web Store Crawler", async () => {
   const fixturesDir = join(import.meta.dir, "fixtures/chrome-web-store");
-  const testFiles = (await readdir(fixturesDir))
-    .filter((file) => !file.startsWith("."))
-    .toSorted();
-  const getExtensionIdFromFile = (file: string): string =>
-    file.match(/.*-([a-z]+)\.html/)![1]!;
+  const testFiles = (await readdir(fixturesDir)).filter((file) => !file.startsWith(".")).toSorted();
+  const getExtensionIdFromFile = (file: string): string => file.match(/.*-([a-z]+)\.html/)![1]!;
 
   beforeEach(() => {
     fetchSpy.mockReset();
@@ -32,15 +30,10 @@ describe("Chrome Web Store Crawler", async () => {
     fetchSpy.mockRestore();
   });
 
-  it.each(testFiles)(
-    "should extract extension details from %s",
-    async (file) => {
-      const id = getExtensionIdFromFile(file);
-      fetchSpy.mockResolvedValueOnce(
-        new Response(Bun.file(join(fixturesDir, file))),
-      );
-      const res = await crawlExtension(id, "en", true);
-      expect(res).toMatchSnapshot();
-    },
-  );
+  it.each(testFiles)("should extract extension details from %s", async (file) => {
+    const id = getExtensionIdFromFile(file);
+    fetchSpy.mockResolvedValueOnce(new Response(Bun.file(join(fixturesDir, file))));
+    const res = await crawlExtension(id, "en", true);
+    expect(res).toMatchSnapshot();
+  });
 });

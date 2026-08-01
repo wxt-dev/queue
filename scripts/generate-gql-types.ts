@@ -1,7 +1,8 @@
-import CodeBlockWriter from "code-block-writer";
-import type { ServerSideFetch } from "@aklinker1/zeta/types";
-import app from "../src/server";
 import { createLogger } from "@aklinker1/logger";
+import type { ServerSideFetch } from "@aklinker1/zeta/types";
+import CodeBlockWriter from "code-block-writer";
+
+import app from "../src/server";
 
 const logger = createLogger("gen:gql-types");
 
@@ -35,11 +36,9 @@ export async function generateGqlTypes(fetch: ServerSideFetch = app.build()) {
 
   code.write("namespace Gql").block(() => {
     // Root Resolver Type
-    const rootTypeNames = [
-      queryType?.name,
-      mutationType?.name,
-      subscriptionType?.name,
-    ].filter((name) => !!name);
+    const rootTypeNames = [queryType?.name, mutationType?.name, subscriptionType?.name].filter(
+      (name) => !!name,
+    );
     code.writeLine(`type RootResolver = ${rootTypeNames.join(" | ")}`);
 
     // Types
@@ -78,10 +77,7 @@ function capitalizeFirstLetter(str: string): string {
 
 function getTsTypeString(gqlType: any, isReturn?: boolean): string {
   if (gqlType.kind === "NON_NULL")
-    return getTsTypeString(gqlType.ofType, isReturn).replace(
-      " | undefined",
-      "",
-    );
+    return getTsTypeString(gqlType.ofType, isReturn).replace(" | undefined", "");
   if (gqlType.kind === "LIST")
     return `Array<${getTsTypeString(gqlType.ofType, isReturn)}> | undefined`;
   if (gqlType.kind === "SCALAR" || gqlType.kind === "OBJECT")
@@ -95,9 +91,7 @@ function writeCommentBlock(code: CodeBlockWriter, description: string | null) {
   if (!description) return;
 
   code.writeLine("/**");
-  description
-    ?.split("\n")
-    .forEach((line: string) => code.writeLine(` * ${line}`));
+  description?.split("\n").forEach((line: string) => code.writeLine(` * ${line}`));
   code.writeLine(" */");
 }
 
@@ -148,12 +142,10 @@ async function introspect(fetch: ServerSideFetch): Promise<any> {
     method: "POST",
   });
   const res = await fetch(request);
-  if (!res.ok)
-    throw Error("Introspection request failed: " + (await res.text()));
+  if (!res.ok) throw Error("Introspection request failed: " + (await res.text()));
 
   const json: any = await res.json();
-  if (json.errors)
-    throw Error("Introspection request failed: " + JSON.stringify(json.errors));
+  if (json.errors) throw Error("Introspection request failed: " + JSON.stringify(json.errors));
 
   return json;
 }

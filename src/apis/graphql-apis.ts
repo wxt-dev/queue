@@ -1,15 +1,13 @@
 import { createApp } from "@aklinker1/zeta";
-import PLAYGROUND_HTML_TEMPLATE from "../assets/playground.html" with { type: "text" };
-import { version } from "../../package.json";
-import { createGraphql } from "../graphql";
-import { z } from "zod";
 import dedent from "dedent";
-import { OpenApiTag } from "../enums";
+import { z } from "zod";
 
-const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace(
-  "{{VERSION}}",
-  version,
-);
+import { version } from "../../package.json";
+import PLAYGROUND_HTML_TEMPLATE from "../assets/playground.html" with { type: "text" };
+import { OpenApiTag } from "../enums";
+import { createGraphql } from "../graphql";
+
+const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace("{{VERSION}}", version);
 
 const graphql = createGraphql();
 

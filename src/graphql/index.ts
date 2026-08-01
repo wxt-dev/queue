@@ -1,8 +1,9 @@
-import { buildSchema, graphql } from "graphql";
-import gqlSchema from "../assets/schema.gql" with { type: "text" };
-import { rootResolver } from "./resolvers";
-import { container } from "../dependencies";
 import { createLogger } from "@aklinker1/logger";
+import { buildSchema, graphql } from "graphql";
+
+import gqlSchema from "../assets/schema.gql" with { type: "text" };
+import { container } from "../dependencies";
+import { rootResolver } from "./resolvers";
 
 const logger = createLogger("gql");
 
