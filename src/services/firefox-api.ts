@@ -11,17 +11,21 @@ export interface FirefoxApi {
 }
 
 export function createFirefoxApi(): FirefoxApi {
+  // AMO returns `null` instead of a locale map when a listing leaves a field empty
+  const firstLocalizedValue = (value: { [locale: string]: string } | null): string =>
+    Object.values(value ?? {})[0] ?? "";
+
   const toGqlFirefoxAddon = (res: GetAddon200Response): Gql.FirefoxAddon => ({
     id: String(res.id),
     slug: res.slug,
     guid: res.guid,
     iconUrl: res.icon_url,
     lastUpdated: res.last_updated,
-    longDescription: Object.values<string>(res.description)[0]!,
-    name: Object.values<string>(res.name)[0]!,
+    longDescription: firstLocalizedValue(res.description),
+    name: firstLocalizedValue(res.name),
     rating: res.ratings.average,
     reviewCount: res.ratings.count,
-    shortDescription: Object.values<string>(res.summary)[0]!,
+    shortDescription: firstLocalizedValue(res.summary),
     storeUrl: res.url,
     version: res.current_version.version,
     users: res.average_daily_users,
@@ -105,7 +109,7 @@ type GetAddon200Response = {
   default_locale: string;
   description: {
     [locale: string]: string;
-  };
+  } | null;
   developer_comments: string | null;
   edit_url: string;
   guid: string;
@@ -153,7 +157,7 @@ type GetAddon200Response = {
   status: string;
   summary: {
     [locale: string]: string;
-  };
+  } | null;
   support_email: {
     [locale: string]: string;
   };
