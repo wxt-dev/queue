@@ -27,3 +27,4 @@ tsconfig.tsbuildinfo
 # Other Files
 src/crawlers/__tests__/fixtures/chrome-web-store/.new/*
 !src/crawlers/__tests__/fixtures/chrome-web-store/.new/.keep
+/data

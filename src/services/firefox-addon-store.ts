@@ -13,7 +13,7 @@ export function createFirefoxAddonStore({
 }): FirefoxAddonStore {
   return new ExtensionStore({
     fetch: (id) => firefoxApi.getAddon(String(id)),
-    cacheKeyPrefix: "firefox-addon-",
+    cacheKeyPrefix: "firefox-addon-v2-",
     cache,
   });
 }
