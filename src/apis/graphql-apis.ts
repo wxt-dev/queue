@@ -37,7 +37,7 @@ export const graphqlApis = createApp({
               }
             `,
             variables: {
-              id: "ocfdgncpifmegplaglcnglhioflaimkd",
+              id: "mgmdkjcljneegjfajchedjpdhbadklcf",
             },
             operationName: "GetExtension",
           },
@@ -51,7 +51,7 @@ export const graphqlApis = createApp({
           example: {
             data: {
               chromeExtension: {
-                id: "ocfdgncpifmegplaglcnglhioflaimkd",
+                id: "mgmdkjcljneegjfajchedjpdhbadklcf",
                 screenshots: [
                   {
                     rawUrl:
