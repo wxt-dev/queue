@@ -25,13 +25,11 @@ describe("Chrome Web Store Crawler E2E", () => {
       version: expect.any(String),
       users: expect.any(Number),
       weeklyActiveUsers: expect.any(Number),
-      screenshots: expect.arrayContaining(
-        [0, 1, 2, 3, 4].map((index) => ({
-          index,
-          indexUrl: `http://localhost:3000/api/rest/chrome-web-store/${animeSkipPlayerId}/screenshots/${index}`,
-          rawUrl: expect.any(String),
-        })),
-      ),
+      screenshots: [0, 1, 2, 3, 4].map((index) => ({
+        index,
+        indexUrl: `http://localhost:3000/api/rest/chrome-web-store/${animeSkipPlayerId}/screenshots/${index}`,
+        rawUrl: expect.any(String),
+      })),
     });
   });
 });
