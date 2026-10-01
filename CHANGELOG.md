@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.4.16
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.15...v0.4.16)
+
+### 🚀 Enhancements
+
+- Add support for an SQLite cache as a low-memory option ([#14](https://github.com/wxt-dev/queue/pull/14))
+
+### 🩹 Fixes
+
+- Deduplicate chrome screenshots ([#15](https://github.com/wxt-dev/queue/pull/15))
+
+### 🏡 Chore
+
+- Upgrade to TS 7 ([36de4d7](https://github.com/wxt-dev/queue/commit/36de4d7))
+- Use `oxfmt` instead of `prettier` ([dc1dec8](https://github.com/wxt-dev/queue/commit/dc1dec8))
+
+### 🤖 CI
+
+- Disable deployment step ([703317f](https://github.com/wxt-dev/queue/commit/703317f))
+
+### ❤️ Contributors
+
+- Aaron <aaronklinker1@gmail.com>
+
 ## v0.4.15
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.14...v0.4.15)
