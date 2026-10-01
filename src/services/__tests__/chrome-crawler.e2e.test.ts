@@ -2,42 +2,36 @@ import { describe, expect, it } from "bun:test";
 
 import { crawlExtension } from "../chrome-crawler";
 
-const githubBetterLineCountsId = "ocfdgncpifmegplaglcnglhioflaimkd";
+const animeSkipPlayerId = "mgmdkjcljneegjfajchedjpdhbadklcf";
 
 describe("Chrome Web Store Crawler E2E", () => {
   it("should load and crawl an extension ID correctly", async () => {
-    const res = await crawlExtension(githubBetterLineCountsId, "en", true);
+    const res = await crawlExtension(animeSkipPlayerId, "en", true);
 
     expect(res).toEqual({
       iconUrl:
-        "https://lh3.googleusercontent.com/GcffNyCJaxT2G9dsQCJHhUEMlu_E0vEzph5cLPrQj7UHKat7QyCzGu69Dmp_DDUL8rY-bPMFJceQarS1wcqdwTalTg=s256",
-      id: githubBetterLineCountsId,
+        "https://lh3.googleusercontent.com/lTplXRdnpEB-7DGRa_1nCKao_3aJ3C_e-GNVs9tQV9hDUXgupc1SsW6OrruxgrkSdFBSOqeia56YWgJI2IgpV1MK49s=s256",
+      id: animeSkipPlayerId,
       lastUpdated: expect.any(String),
-      longDescription: expect.stringContaining("Lots of code is generated nowadays"),
-      name: "GitHub Better Line Counts",
+      longDescription: expect.stringContaining("Watch anime faster than ever!"),
+      name: "Anime Skip Player",
       rating: expect.any(Number),
       reviewCount: expect.any(Number),
-      shortDescription: "Remove generated files from GitHub line counts",
+      shortDescription:
+        "Custom video player for anime streaming websites. Skip intros, outros, and more.",
       storeUrl: expect.stringContaining(
-        "https://chromewebstore.google.com/detail/github-better-line-counts/ocfdgncpifmegplaglcnglhioflaimkd",
+        "https://chromewebstore.google.com/detail/anime-skip-player/mgmdkjcljneegjfajchedjpdhbadklcf",
       ),
       version: expect.any(String),
       users: expect.any(Number),
       weeklyActiveUsers: expect.any(Number),
-      screenshots: [
-        {
-          index: 0,
-          indexUrl:
-            "http://localhost:3000/api/rest/chrome-web-store/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/0",
+      screenshots: expect.arrayContaining(
+        [0, 1, 2, 3, 4].map((index) => ({
+          index,
+          indexUrl: `http://localhost:3000/api/rest/chrome-web-store/${animeSkipPlayerId}/screenshots/${index}`,
           rawUrl: expect.any(String),
-        },
-        {
-          index: 1,
-          indexUrl:
-            "http://localhost:3000/api/rest/chrome-web-store/ocfdgncpifmegplaglcnglhioflaimkd/screenshots/1",
-          rawUrl: expect.any(String),
-        },
-      ],
+        })),
+      ),
     });
   });
 });
