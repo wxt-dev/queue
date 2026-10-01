@@ -17,16 +17,9 @@ export class ExtensionStore<TGqlExtension extends Gql.Extension> {
     this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
       async (ids): Promise<Array<TGqlExtension | Error>> => {
         const results = await Promise.allSettled(
-          ids.map(async (id) => {
-            const cacheKey = options.cacheKeyPrefix + id;
-            const cached = await options.cache.get(cacheKey);
-            if (cached) return cached;
-
-            const result = await options.fetch(id);
-            if (result) await options.cache.set(cacheKey, result);
-
-            return result;
-          }),
+          ids.map(async (id) =>
+            options.cache.with(options.cacheKeyPrefix + id, () => options.fetch(id)),
+          ),
         );
         return results.map((res) => (res.status === "fulfilled" ? res.value : res.reason));
       },

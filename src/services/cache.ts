@@ -1,4 +1,7 @@
 export interface Cache {
-  get<T>(key: string): Promise<T | undefined>;
-  set<T>(key: string, value: T): Promise<void>;
+  with<T>(key: string, fn: () => Promise<T>): Promise<T>;
 }
+
+export type CacheSuccess<T> = { success: true; data: T };
+export type CacheFailure = { success: false; error: unknown };
+export type CacheResult<T> = CacheSuccess<T> | CacheFailure;

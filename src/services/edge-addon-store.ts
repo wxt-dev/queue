@@ -13,7 +13,7 @@ export function createEdgeAddonStore({
 }): EdgeAddonStore {
   return new ExtensionStore({
     fetch: (id) => edgeApi.getAddon(String(id)),
-    cacheKeyPrefix: "edge-addon-",
+    cacheKeyPrefix: "edge-addon-v2-",
     cache,
   });
 }
