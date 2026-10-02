@@ -58,9 +58,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      # - name: Update Production Deployment
-      #   run: |
-      #     curl -X POST -i ${{ secrets.REDEPLOY_WEBHOOK }}
+      - name: Update Production Deployment
+        run: curl -H "$DEPLOY_HEADER" "$DEPLOY_URL"
+        env:
+          DEPLOY_HEADER: ${{ secrets.DEPLOY_HEADER }}
+          DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
 
       - name: GitHub Release
         run: bunx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
