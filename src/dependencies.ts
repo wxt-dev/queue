@@ -1,10 +1,9 @@
 import { createIocContainer } from "@aklinker1/zero-ioc";
 
-import { ExtensionStoreName } from "./enums";
 import { createChromeWebStore } from "./services/chrome-web-store";
 import { createEdgeAddonStore } from "./services/edge-addon-store";
 import { createEdgeApi } from "./services/edge-api";
-import type { ExtensionStores } from "./services/extension-stores";
+import { ExtensionStoreProvider } from "./services/extension-store-provider";
 import { createFirefoxAddonStore } from "./services/firefox-addon-store";
 import { createFirefoxApi } from "./services/firefox-api";
 import { createInMemoryCache } from "./services/in-memory-cache";
@@ -30,19 +29,6 @@ export const requestScope = container
   .register("chromeWebStore", createChromeWebStore)
   .register("firefoxAddonStore", createFirefoxAddonStore)
   .register("edgeAddonStore", createEdgeAddonStore)
-  .register(
-    "stores",
-    (deps) =>
-      ({
-        [ExtensionStoreName.ChromeWebStore]: deps.chromeWebStore,
-        [ExtensionStoreName.FirefoxAddonStore]: deps.firefoxAddonStore,
-        [ExtensionStoreName.EdgeAddonStore]: deps.edgeAddonStore,
-
-        // Deprecated, but staying around for a while.
-        [ExtensionStoreName.ChromeExtensions]: deps.chromeWebStore,
-        [ExtensionStoreName.FirefoxExtensions]: deps.firefoxAddonStore,
-        [ExtensionStoreName.EdgeExtensions]: deps.edgeAddonStore,
-      }) satisfies ExtensionStores,
-  );
+  .register("stores", ExtensionStoreProvider);
 
 export type RequestDependencies = ReturnType<typeof requestScope>["registrations"];
