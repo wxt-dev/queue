@@ -1,9 +1,10 @@
 import { createLogger } from "@aklinker1/logger";
 
+import { buildCacheWith } from "../utils/cache";
 import { DAY_MS } from "../utils/time";
 import type { Cache } from "./cache";
 
-const logger = createLogger("redis");
+const logger = createLogger("redis-cache");
 
 const TTL = DAY_MS;
 const TTL_S = TTL / 1000;
@@ -14,15 +15,15 @@ export function createRedisCache(): Cache {
   });
 
   return {
-    async get<T>(key: string): Promise<T | undefined> {
-      const value = await Bun.redis.get(key);
-      if (value == null) return undefined;
-
-      return JSON.parse(value) as T;
-    },
-    async set<T>(key: string, value: T): Promise<void> {
-      await Bun.redis.set(key, JSON.stringify(value));
-      await Bun.redis.expire(key, TTL_S);
-    },
+    with: buildCacheWith(
+      logger,
+      async (key) => {
+        const cached = await Bun.redis.get(key);
+        return cached == null ? undefined : JSON.parse(cached);
+      },
+      async (key, res) => {
+        await Bun.redis.set(key, JSON.stringify(res), "EX", TTL_S);
+      },
+    ),
   };
 }

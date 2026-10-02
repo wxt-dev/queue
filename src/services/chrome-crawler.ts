@@ -126,18 +126,30 @@ export async function crawlExtension(
         ?.textContent?.replaceAll("\n\n", "\n"),
   ]);
 
+  const extractScreenshots = (includeCarousel: boolean): Gql.Screenshot[] => {
+    const screenshots = [...document.querySelectorAll("div[data-media-url]")]
+      .filter((div) => div.getAttribute("data-is-video") === "false")
+      // The main carousel contains cloned slides at both ends for infinite scrolling, so by
+      // default only use the preview thumbnails, which are listed exactly once.
+      .filter((div) => includeCarousel || !div.closest('[role="region"]'))
+      .map<Gql.Screenshot>((div) => {
+        const index = parseInt(div.getAttribute("data-slide-index"));
+        return {
+          index,
+          rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
+          indexUrl: buildScreenshotUrl(ExtensionStoreName.ChromeWebStore, id, index),
+        };
+      });
+    if (!includeCarousel) return screenshots;
+
+    // Remove duplicates from the carousel's cloned slides
+    return [...new Map(screenshots.map((s) => [s.index, s])).values()].sort(
+      (a, b) => a.index - b.index,
+    );
+  };
   const screenshots = tryExtract("screenshots", validateGqlScreenshots, [
-    () =>
-      [...document.querySelectorAll("div[data-media-url]")]
-        .filter((div) => div.getAttribute("data-is-video") === "false")
-        .map<Gql.Screenshot>((div) => {
-          const index = parseInt(div.getAttribute("data-slide-index"));
-          return {
-            index,
-            rawUrl: div.getAttribute("data-media-url") + "=s1280", // "s1280" gets the full resolution
-            indexUrl: buildScreenshotUrl(ExtensionStoreName.ChromeWebStore, id, index),
-          };
-        }),
+    () => extractScreenshots(false),
+    () => extractScreenshots(true),
   ]);
 
   const result: Gql.ChromeExtension = {
