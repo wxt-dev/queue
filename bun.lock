@@ -6,7 +6,7 @@
       "name": ".",
       "dependencies": {
         "@aklinker1/logger": "^1.0.6",
-        "@aklinker1/zero-ioc": "^1.5.1",
+        "@aklinker1/zero-ioc": "^1.6.0",
         "@aklinker1/zero-serialize-error": "^1.0.2",
         "@aklinker1/zeta": "^2.2.0",
         "dataloader": "^2.2.3",
@@ -34,7 +34,7 @@
 
     "@aklinker1/logger": ["@aklinker1/logger@1.0.6", "", {}, "sha512-EMlpsa3tBgxSAzXV+WgnUNkaCh3G1SvYkvDjHhG9pQcBG+YxUKXtIUFuazQbyotsH/cdRMG+RxI7GI8NCQ40OQ=="],
 
-    "@aklinker1/zero-ioc": ["@aklinker1/zero-ioc@1.5.1", "", {}, "sha512-PIv6SlAJFIfBA7nrUxBswsMsUHSjHK0DYMqSxj9pFItst6lwJYTP9XfTo7lY1f/swwzauieRG7YopAjd1rvQfw=="],
+    "@aklinker1/zero-ioc": ["@aklinker1/zero-ioc@1.6.0", "", {}, "sha512-xiTXd2aOHnxr/Jbjj1Aw5kRo5i1d5BA1tEhNXKnz0svAWeT+fpqDf+2ONDrtU6FhHKsd5qo3w9H0lGzjomgaNw=="],
 
     "@aklinker1/zero-serialize-error": ["@aklinker1/zero-serialize-error@1.0.2", "", {}, "sha512-hGVkgFqb8Zs80JJ7MOSCGQXH2SyWfwnJwOl8Qpp1lUdkp5T7GTf8QrAMib42Hnzx6HtnNYdmNaSSg4MQy+MDRQ=="],
 

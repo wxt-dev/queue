@@ -1,4 +1,4 @@
-import { createIocContainer, transient } from "@aklinker1/zero-ioc";
+import { createIocContainer } from "@aklinker1/zero-ioc";
 
 import { ExtensionStoreName } from "./enums";
 import { createChromeWebStore } from "./services/chrome-web-store";
@@ -21,10 +21,15 @@ export const container = createIocContainer()
         : createInMemoryCache,
   )
   .register("edgeApi", createEdgeApi)
-  .register("firefoxApi", createFirefoxApi)
-  .register("chromeWebStore", transient(createChromeWebStore))
-  .register("firefoxAddonStore", transient(createFirefoxAddonStore))
-  .register("edgeAddonStore", transient(createEdgeAddonStore))
+  .register("firefoxApi", createFirefoxApi);
+
+export type Dependencies = typeof container.registrations;
+
+export const requestScope = container
+  .scope<{}>()
+  .register("chromeWebStore", createChromeWebStore)
+  .register("firefoxAddonStore", createFirefoxAddonStore)
+  .register("edgeAddonStore", createEdgeAddonStore)
   .register(
     "stores",
     (deps) =>
@@ -40,4 +45,4 @@ export const container = createIocContainer()
       }) satisfies ExtensionStores,
   );
 
-export type Dependencies = typeof container.registrations;
+export type RequestDependencies = ReturnType<typeof requestScope>["registrations"];

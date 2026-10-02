@@ -6,6 +6,7 @@ import { version } from "../../package.json";
 import PLAYGROUND_HTML_TEMPLATE from "../assets/playground.html" with { type: "text" };
 import { OpenApiTag } from "../enums";
 import { createGraphql } from "../graphql";
+import { contextPlugin } from "../plugins/context-plugin";
 
 const PLAYGROUND_HTML = (PLAYGROUND_HTML_TEMPLATE as any as string).replace("{{VERSION}}", version);
 
@@ -14,6 +15,7 @@ const graphql = createGraphql();
 export const graphqlApis = createApp({
   tags: [OpenApiTag.Graphql],
 })
+  .use(contextPlugin)
   .post(
     "/api",
     {
@@ -67,7 +69,7 @@ export const graphqlApis = createApp({
           },
         }),
     },
-    ({ request, body }) => graphql.evaluateQuery(request.method, body) as any,
+    ({ request, body, deps }) => graphql.evaluateQuery(deps, request.method, body) as any,
   )
   .get(
     "/playground",

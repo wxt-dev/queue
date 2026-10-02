@@ -2,7 +2,7 @@ import { createLogger } from "@aklinker1/logger";
 import { buildSchema, graphql } from "graphql";
 
 import gqlSchema from "../assets/schema.gql" with { type: "text" };
-import { container } from "../dependencies";
+import { type RequestDependencies } from "../dependencies";
 import { rootResolver } from "./resolvers";
 
 const logger = createLogger("gql");
@@ -12,7 +12,7 @@ export function createGraphql() {
 
   let increment = 0;
 
-  const evaluateQuery = async (method: string, body: GraphQLParams) => {
+  const evaluateQuery = async (deps: RequestDependencies, method: string, body: GraphQLParams) => {
     const id = ++increment;
     const { operationName = "Unknown", query, variables } = body;
 
@@ -21,7 +21,7 @@ export function createGraphql() {
     logger.debug("Running query", { id, method, operationName });
 
     const ctx: Gql.WxtQueueCtx = {
-      deps: container.registrations,
+      deps,
     };
 
     const response = await graphql({
