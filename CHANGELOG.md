@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.4.17
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.16...v0.4.17)
+
+### 🩹 Fixes
+
+- **firefox:** Don't error when an addon has no description or summary ([#13](https://github.com/wxt-dev/queue/pull/13))
+- Limit number of concurrent crawls to reduce memory spike when crawling 140+ sites at once ([01ae573](https://github.com/wxt-dev/queue/commit/01ae573))
+- Scope store service instances to requests ([#17](https://github.com/wxt-dev/queue/pull/17))
+- Use classes instead of factory functions for stores ([#18](https://github.com/wxt-dev/queue/pull/18))
+
+### 🤖 CI
+
+- Reenable deployment step ([a7008b5](https://github.com/wxt-dev/queue/commit/a7008b5))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+- Skylar Bolton <skylar.bolton@gmail.com>
+
 ## v0.4.16
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.15...v0.4.16)
