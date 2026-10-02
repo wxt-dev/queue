@@ -1,5 +1,5 @@
 declare namespace Gql {
   export type WxtQueueCtx = {
-    deps: import("../dependencies").Dependencies;
+    deps: import("../dependencies").RequestDependencies;
   };
 }

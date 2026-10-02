@@ -1,5 +1,7 @@
 import { createApp } from "@aklinker1/zeta";
 
-import { container } from "../dependencies";
+import { requestScope } from "../dependencies";
 
-export const contextPlugin = createApp().decorate({ deps: container.registrations }).export();
+export const contextPlugin = createApp()
+  .onTransform(() => ({ deps: requestScope({}).registrations }))
+  .export();
