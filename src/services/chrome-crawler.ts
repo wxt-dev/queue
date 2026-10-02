@@ -1,15 +1,33 @@
 import { createLogger } from "@aklinker1/logger";
 import { HTMLAnchorElement, HTMLElement, parseHTML } from "linkedom";
+import { withLock } from "superlock";
 
 import { ExtensionStoreName } from "../enums";
 import { buildScreenshotUrl } from "../utils/urls";
 
 const logger = createLogger("chrome-crawler");
 
-export async function crawlExtension(
+/**
+ * Each Chrome Web Store page is ~600KB of HTML. Fetching and parsing hundreds of them at once (e.g.
+ * a cold cache + a large `chromeExtensions(ids: [...])` query) buffers every response body and
+ * generates a lot of parser garbage at the same time, which can OOM small servers. Limit how many
+ * are in flight at once.
+ */
+const MAX_CONCURRENT_CRAWLS = 10;
+const limitCrawls = withLock(MAX_CONCURRENT_CRAWLS);
+
+export function crawlExtension(
   id: string,
   lang: string,
   canGenerateTestFixture = false,
+): Promise<Gql.ChromeExtension | undefined> {
+  return limitCrawls(() => crawlExtensionUnlimited(id, lang, canGenerateTestFixture));
+}
+
+async function crawlExtensionUnlimited(
+  id: string,
+  lang: string,
+  canGenerateTestFixture: boolean,
 ): Promise<Gql.ChromeExtension | undefined> {
   logger.info("Start", { id, lang });
   const url = `https://chromewebstore.google.com/detail/${id}?hl=${lang}`;
