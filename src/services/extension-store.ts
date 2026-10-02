@@ -8,18 +8,14 @@ export class ExtensionStore<TGqlExtension extends Gql.Extension> {
   private dataloader: DataLoader<ExtensionId, TGqlExtension>;
 
   constructor(
-    readonly options: {
-      cacheKeyPrefix: string;
-      fetch: (id: ExtensionId) => Promise<TGqlExtension | undefined>;
-      cache: Cache;
-    },
+    readonly cache: Cache,
+    readonly cacheKeyPrefix: string,
+    readonly fetch: (id: ExtensionId) => Promise<TGqlExtension | undefined>,
   ) {
     this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
       async (ids): Promise<Array<TGqlExtension | Error>> => {
         const results = await Promise.allSettled(
-          ids.map(async (id) =>
-            options.cache.with(options.cacheKeyPrefix + id, () => options.fetch(id)),
-          ),
+          ids.map(async (id) => cache.with(cacheKeyPrefix + id, () => fetch(id))),
         );
         return results.map((res) => (res.status === "fulfilled" ? res.value : res.reason));
       },

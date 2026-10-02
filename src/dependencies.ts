@@ -1,10 +1,10 @@
 import { createIocContainer } from "@aklinker1/zero-ioc";
 
-import { createChromeWebStore } from "./services/chrome-web-store";
-import { createEdgeAddonStore } from "./services/edge-addon-store";
+import { ChromeWebStore } from "./services/chrome-web-store";
+import { EdgeAddonStore } from "./services/edge-addon-store";
 import { createEdgeApi } from "./services/edge-api";
 import { ExtensionStoreProvider } from "./services/extension-store-provider";
-import { createFirefoxAddonStore } from "./services/firefox-addon-store";
+import { FirefoxAddonStore } from "./services/firefox-addon-store";
 import { createFirefoxApi } from "./services/firefox-api";
 import { createInMemoryCache } from "./services/in-memory-cache";
 import { createRedisCache } from "./services/redis-cache";
@@ -26,9 +26,9 @@ export type Dependencies = typeof container.registrations;
 
 export const requestScope = container
   .scope<{}>()
-  .register("chromeWebStore", createChromeWebStore)
-  .register("firefoxAddonStore", createFirefoxAddonStore)
-  .register("edgeAddonStore", createEdgeAddonStore)
+  .register("chromeWebStore", ChromeWebStore)
+  .register("firefoxAddonStore", FirefoxAddonStore)
+  .register("edgeAddonStore", EdgeAddonStore)
   .register("stores", ExtensionStoreProvider);
 
 export type RequestDependencies = ReturnType<typeof requestScope>["registrations"];
