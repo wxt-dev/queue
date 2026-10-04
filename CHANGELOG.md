@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.4.18
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.17...v0.4.18)
+
+### 🩹 Fixes
+
+- Add robots.txt ([3367d01](https://github.com/wxt-dev/queue/commit/3367d01))
+
+### 🏡 Chore
+
+- Upgrade to Bun 1.4.2 ([521965f](https://github.com/wxt-dev/queue/commit/521965f))
+
+### 🤖 CI
+
+- Fix `bun-version-file` ([33c437a](https://github.com/wxt-dev/queue/commit/33c437a))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.17
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.16...v0.4.17)
