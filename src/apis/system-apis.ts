@@ -1,6 +1,7 @@
 import { createApp } from "@aklinker1/zeta";
 import z from "zod";
 
+import robots from "../assets/robots.txt" with { type: "text/plain" };
 import { version } from "../version";
 
 export const systemApis = createApp({
@@ -29,4 +30,5 @@ export const systemApis = createApp({
       }),
     },
     () => ({ status: "ok" as const, version }),
-  );
+  )
+  .any("/robots.txt", () => robots);
