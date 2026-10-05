@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.4.21
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.18...v0.4.21)
+
+### 🚀 Features
+
+- Add prometheus metrics for fetching extension without a cache ([#19](https://github.com/wxt-dev/queue/pull/19))
+
+### 🏡 Chore
+
+- Fix dev server startup log ([`16e52b9`](https://github.com/wxt-dev/queue/commit/16e52b9048ae7d3efc77f64947e032f46601dd76))
+- **release**: V0.4.19 ([`15bebfb`](https://github.com/wxt-dev/queue/commit/15bebfb09b3da3a12018cfb923f405bafe17808f))
+
+### 🤖 CI
+
+- Upgrade github actions to fix node 20 warning ([`13340c3`](https://github.com/wxt-dev/queue/commit/13340c3b09e28dc99a06828ef6f3cf12bed68daf))
+- Switch from `changelogen` to `aklinker1/zero-changelog` ([`e596465`](https://github.com/wxt-dev/queue/commit/e596465689dcfb54aa40fc2495a0b94871c65fe3))
+- Skip validation for dry runs ([`6b3a9ce`](https://github.com/wxt-dev/queue/commit/6b3a9ce2a5f554acd818d9af23d8b9f893ce15a1))
+- Skip other steps on dry run ([`c1da5f7`](https://github.com/wxt-dev/queue/commit/c1da5f7b8943a248d0154713ba6d23e31607cc46))
+
+### ❤️ Contributors
+
+- [@github-actions](https://github.com/github-actions)
+- [@aklinker1](https://github.com/aklinker1)
+
 ## v0.4.19
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.18...v0.4.19)
