@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.4.19
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.18...v0.4.19)
+
+### 🚀 Enhancements
+
+- Add prometheus metrics for fetching extension without a cache ([#19](https://github.com/wxt-dev/queue/pull/19))
+
+### 🏡 Chore
+
+- Fix dev server startup log ([16e52b9](https://github.com/wxt-dev/queue/commit/16e52b9))
+
+### 🤖 CI
+
+- Upgrade github actions to fix node 20 warning ([13340c3](https://github.com/wxt-dev/queue/commit/13340c3))
+
+### ❤️ Contributors
+
+- Aaron ([@aklinker1](https://github.com/aklinker1))
+
 ## v0.4.18
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.17...v0.4.18)
