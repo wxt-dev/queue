@@ -68,11 +68,12 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
-          push: true
+          push: ${{ !inputs.dryRun }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Update Production Deployment
+        if: ${{ !inputs.dryRun }}
         run: curl -H "$DEPLOY_HEADER" "$DEPLOY_URL"
         env:
           DEPLOY_HEADER: ${{ secrets.DEPLOY_HEADER }}
