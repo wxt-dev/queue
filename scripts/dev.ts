@@ -12,4 +12,4 @@ await generateGqlTypes(fetch);
 
 const server = Bun.serve({ fetch });
 
-logger.success("@wxt-dev/queue server started", { version, url: server.url });
+logger.success("@wxt-dev/queue server started", { version, url: server.url.href });
