@@ -7,7 +7,7 @@
 bun.lock linguist-generated
 
 # Mark other generated files as generated
-src/crawlers/__tests__/fixtures/chrome-web-store/*.html linguist-generated=true
+src/services/__tests__/fixtures/** linguist-generated=true
 
 # Hide files from GitHub's language breakdown
 src/assets/* linguist-detectable=false
