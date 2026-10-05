@@ -1,6 +1,14 @@
 name: Release
 on:
   workflow_dispatch:
+    inputs:
+      bump:
+        description: Blank (auto), a version (1.4.1), or major/minor/patch
+        type: string
+      dryRun:
+        description: Dry Run?
+        type: boolean
+        default: false
 
 jobs:
   validate:
@@ -17,16 +25,20 @@ jobs:
 
       - uses: ./.github/actions/setup
 
-      - name: Bump and Tag
-        id: bump
+      - name: Setup Git
         run: |
-          git config user.email "github-actions@users.noreply.github.com"
-          git config user.name "GitHub Actions"
-          bunx changelogen@latest --release
-          VERSION=$(jq -r '.version' package.json)
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          git push
-          git push --tags
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+
+      - name: Bump and Release
+        id: bump
+        uses: aklinker1/zero-changelog/actions/release@580807ccd232072f137084a7817d4213d39dbb99 # v0.2.3
+        with:
+          bump: ${{ inputs.bump }}
+          publishCommands: |-
+            echo "none"
+          dryRun: ${{ inputs.dryRun }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Docker meta
         id: meta
@@ -63,6 +75,3 @@ jobs:
         env:
           DEPLOY_HEADER: ${{ secrets.DEPLOY_HEADER }}
           DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
-
-      - name: GitHub Release
-        run: bunx changelogen@latest gh release --token ${{ secrets.GITHUB_TOKEN }}
