@@ -1,21 +1,33 @@
 import DataLoader from "dataloader";
 
+import { fetchExtensionCounter } from "../utils/metrics";
 import type { Cache } from "./cache";
 
 export type ExtensionId = string | number;
 
-export class ExtensionStore<TGqlExtension extends Gql.Extension> {
+export abstract class ExtensionStore<TGqlExtension extends Gql.Extension> {
   private dataloader: DataLoader<ExtensionId, TGqlExtension>;
 
   constructor(
     readonly cache: Cache,
+    readonly storeName: string,
     readonly cacheKeyPrefix: string,
-    readonly fetch: (id: ExtensionId) => Promise<TGqlExtension | undefined>,
   ) {
     this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
       async (ids): Promise<Array<TGqlExtension | Error>> => {
         const results = await Promise.allSettled(
-          ids.map(async (id) => cache.with(cacheKeyPrefix + id, () => fetch(id))),
+          ids.map((id) =>
+            cache.with(cacheKeyPrefix + id, async () => {
+              try {
+                const res = await this.fetchExtension(id);
+                fetchExtensionCounter.inc({ store_name: this.storeName, result: "success" });
+                return res;
+              } catch (err) {
+                fetchExtensionCounter.inc({ store_name: this.storeName, result: "error" });
+                throw err;
+              }
+            }),
+          ),
         );
         return results.map((res) => (res.status === "fulfilled" ? res.value : res.reason));
       },
@@ -43,4 +55,6 @@ export class ExtensionStore<TGqlExtension extends Gql.Extension> {
     );
     return screenshot?.rawUrl;
   }
+
+  protected abstract fetchExtension(id: ExtensionId): Promise<TGqlExtension | undefined>;
 }
