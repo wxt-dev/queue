@@ -2,7 +2,10 @@
 import { createLogger } from "@aklinker1/logger";
 
 import { version } from "../package.json";
+import { startMetricsServer } from "./metrics-server";
 import app from "./server";
+
+startMetricsServer();
 
 const logger = createLogger("http");
 

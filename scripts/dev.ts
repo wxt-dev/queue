@@ -2,8 +2,11 @@
 import { createLogger } from "@aklinker1/logger";
 
 import { version } from "../package.json";
+import { startMetricsServer } from "../src/metrics-server";
 import app from "../src/server";
 import { generateGqlTypes } from "./generate-gql-types";
+
+startMetricsServer();
 
 const logger = createLogger("http");
 
