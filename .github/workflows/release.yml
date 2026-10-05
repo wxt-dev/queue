@@ -12,10 +12,12 @@ on:
 
 jobs:
   validate:
+    if: ${{ !inputs.dryRun }}
     uses: "./.github/workflows/validate.yml"
 
   publish:
     runs-on: ubuntu-22.04
+    if: ${{ !cancelled() && (needs.validate.result == 'success' || needs.validate.result == 'skipped') }}
     needs:
       - validate
     steps:
