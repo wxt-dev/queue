@@ -1,5 +1,6 @@
 import DataLoader from "dataloader";
 
+import type { ExtensionStoreName } from "../enums";
 import { fetchExtensionCounter } from "../utils/metrics";
 import type { Cache } from "./cache";
 
@@ -10,7 +11,7 @@ export abstract class ExtensionStore<TGqlExtension extends Gql.Extension> {
 
   constructor(
     readonly cache: Cache,
-    readonly storeName: string,
+    readonly storeName: ExtensionStoreName,
     readonly cacheKeyPrefix: string,
   ) {
     this.dataloader = new DataLoader<ExtensionId, TGqlExtension>(
