@@ -1,5 +1,28 @@
 # Changelog
 
+## v0.5.0
+
+[compare changes](https://github.com/wxt-dev/queue/compare/v0.4.21...v0.5.0)
+
+### 🩹 Fixes
+
+- Use enums for store names ([`4ca155f`](https://github.com/wxt-dev/queue/commit/4ca155f8e7240d5bad3e1c969f5fde8f2f2af09c))
+
+### 🏡 Chore
+
+- Remove test HTML files from github's language breakdown ([`880364d`](https://github.com/wxt-dev/queue/commit/880364ddc7512bf2ddfca43d88ef338305d8751f))
+- Remove playground.html from github language breakdown ([`0ffc923`](https://github.com/wxt-dev/queue/commit/0ffc923c6e9c8a392dccda43cb55014379e51149))
+- Fix path to test fixtures ([`26f2333`](https://github.com/wxt-dev/queue/commit/26f2333ec4e60bc2a8b113f7a4ae99ff7b88ee30))
+- Remove deprecated store names ([`27c7fde`](https://github.com/wxt-dev/queue/commit/27c7fde9163d3e82642bbd1314eea3bb027311f3))
+
+### ⚠️ Breaking Changes
+
+- [`27c7fde`](https://github.com/wxt-dev/queue/commit/27c7fde9163d3e82642bbd1314eea3bb027311f3): Replace "chrome-extensions", "firefox-extensions", and
+
+### ❤️ Contributors
+
+- [@aklinker1](https://github.com/aklinker1)
+
 ## v0.4.21
 
 [compare changes](https://github.com/wxt-dev/queue/compare/v0.4.18...v0.4.21)
