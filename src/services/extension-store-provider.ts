@@ -13,12 +13,21 @@ export class ExtensionStoreProvider {
   get [ExtensionStoreName.ChromeWebStore]() {
     return this.deps.chromeWebStore;
   }
+  get [ExtensionStoreName.ChromeExtensions]() {
+    return this.deps.chromeWebStore;
+  }
 
   get [ExtensionStoreName.FirefoxAddonStore]() {
     return this.deps.firefoxAddonStore;
   }
+  get [ExtensionStoreName.FirefoxExtensions]() {
+    return this.deps.firefoxAddonStore;
+  }
 
   get [ExtensionStoreName.EdgeAddonStore]() {
+    return this.deps.edgeAddonStore;
+  }
+  get [ExtensionStoreName.EdgeExtensions]() {
     return this.deps.edgeAddonStore;
   }
 }
